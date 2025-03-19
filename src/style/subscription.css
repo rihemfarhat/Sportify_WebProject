@@ -1,0 +1,137 @@
+.form-overlay {
+    position: relative;
+
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    width:1000px;
+    margin-top: 400px;
+    
+}
+.form-overlay .videotitle{color: white;
+margin-top: -170px;
+margin-bottom: 100px;
+font-size: 23px;}
+
+.payment-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 130vh; /* ou une valeur plus grande */
+    object-fit: cover;
+    z-index: 0; /* Change -1 à 0 ou plus pour éviter qu’elle ne disparaisse sous d'autres éléments */
+}
+
+
+
+
+
+.billing-toggle {
+    margin-bottom: 2.5rem;
+}
+
+.billing-toggle button {
+    margin: 0 0.5rem;
+   font-weight: bold;
+    padding: 2rem 2.5rem;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: #666;
+    transition: background-color 0.3s;
+}
+
+
+.billing-toggle .active {
+    background-color: #e84118;
+}
+
+.subscription-options {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    margin-left: 140px;
+}
+
+
+.option {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: white;
+    padding: 5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.option:hover {
+    transform: scale(1.05);
+}
+
+button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #e84118;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c23616;
+}
+
+
+.success-stories-payment {
+    padding: 4rem 2rem;
+    width: 100%;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 500px;
+  }
+  
+  .success-stories-payment h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .success-stories-payment .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  
+  .testimonials-payment {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .testimonial-payment {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  .testimonial-payment h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonial-payment blockquote {
+    font-size: 1rem;
+    color: #555;
+    font-style: italic;
+    margin: 0;
+  }

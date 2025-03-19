@@ -1,0 +1,171 @@
+/* HomePage.css */
+
+
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(200, 193, 193, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: 100px;
+  }
+  
+  .nav-links a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-buttons,.nav-buttons-coach {
+    background-color: #000000;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .nav-buttons{margin-right: 20px;}
+
+  .login-btn,.login-btn-coach {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+   
+  }
+ 
+  .nav-buttons-coach{margin-left: 500px;}
+
+
+ 
+  
+  /* Style de base pour la page */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar .logosignup2{width: 150x ; height: 50px; margin-left: 20px;
+margin-top: 2px;}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Hauteur de l'écran */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-video {
+  position: absolute;
+  margin-top: 80px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Assure que la vidéo couvre tout l'espace */
+  z-index: -1; /* Place la vidéo en arrière-plan */
+}
+
+.hero-text-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.hero-button {
+  background-color: #f8f4f4;
+  color: rgb(0, 0, 0);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transform: translateY(200px); 
+}
+.hero-button:hover {
+  background-color: #ebf5ff;
+}
+
+
+/* Success Stories Section */
+.success-stories {
+  padding: 4rem 2rem;
+  width: 100%;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.success-stories h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.success-stories .subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.testimonial h2 {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.testimonial blockquote {
+  font-size: 1rem;
+  color: #555;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .success-stories h1 {
+    font-size: 2rem;
+  }
+
+  .testimonial h2 {
+    font-size: 1.3rem;
+  }
+
+  .testimonial blockquote {
+    font-size: 0.9rem;
+  }
+}
