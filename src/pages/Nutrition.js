@@ -11,26 +11,26 @@ import React from 'react';
    return (
      <div>
              <nav className="navbar">
-         {/* Logo - clickable to Homepage */}
-         <Link to="/" className="logo-link">
-             <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
-         </Link>
- 
-         <ul className="nav-links">
-             <li><a href="#">Training</a></li>
-             <li><Link to="/Nutrition">Nutrition</Link></li>
-             <li><a href="#">Blog</a></li>
-             <li><a href="#">Shop</a></li>
-         </ul>
- 
-         <div className="nav-buttons-coach">
-             <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
-         </div>
- 
-         <div className="nav-buttons">
-             <Link to="/login" className="login-btn">Start Now</Link>
-         </div>
-         </nav>
+               {/* Logo - clickable to Homepage */}
+               <Link to="/" className="logo-link">
+                 <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+               </Link>
+             
+               <ul className="nav-links">
+                 <li><a href="#">Training</a></li>
+                 <li><Link to="/Nutrition">Nutrition</Link></li>
+                 <li><Link to="/news">News</Link></li>
+                 <li><a href="#">Shop</a></li>
+               </ul>
+             
+               <div className="nav-buttons-coach">
+                 <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+               </div>
+             
+               <div className="nav-buttons">
+                 <Link to="/login" className="login-btn">Start Now</Link>
+               </div>
+             </nav>
                      
  
      

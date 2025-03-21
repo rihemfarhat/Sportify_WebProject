@@ -24,7 +24,7 @@ font-size: 23px;}
     z-index: 0; /* Change -1 à 0 ou plus pour éviter qu’elle ne disparaisse sous d'autres éléments */
 }
 
-
+.videotitle h1{color: white;}
 
 
 
