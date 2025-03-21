@@ -1,0 +1,79 @@
+
+/* Conteneur principal */
+.nutrition-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+  
+  /* Image pleine page en haute qualité */
+  .nutrition-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l’image reste nette sans déformation */
+    object-position: center; /* Centre l’image */
+  }
+  
+  /* Overlay sombre */
+  .nutrition-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Ajoute un léger effet de fondu */
+  }
+  
+  /* Contenu */
+  .nutrition-content {
+    position: relative;
+    z-index: 1;
+    max-width: 80%;
+  }
+  
+  .nutrition-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .nutrition-subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  .nutrition-text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+  
+  /* Bouton */
+  .nutrition-button {
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .nutrition-button:hover {
+    background-color: #ddd;
+  }
+  
+
+  
+
+  
