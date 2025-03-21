@@ -7,6 +7,7 @@ import Signup_coach from './pages/sign_up_coach';
 import Login from './pages/login';
 import Login_coach from './pages/login_coach';
 import Subscription from './pages/subscription';
+import BlogPage from './pages/news';
 import './App.css';
 
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/login_coach" element={<Login_coach />} />
         <Route path="/sign_up_coach" element={<Signup_coach />} />
         <Route path="/subscription" element={<Subscription />} />
+        <Route path="/news" element={<BlogPage />} />
+
 
       </Routes>
     </div>

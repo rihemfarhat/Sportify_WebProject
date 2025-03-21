@@ -11,7 +11,7 @@ export default function HomePage() {
         <ul className="nav-links">
           <li><a href="#">Training</a></li>
           <li><a href="#">Nutrition</a></li>
-          <li><a href="#">Blog</a></li>
+          <li><Link to="/news">News</Link></li> 
           <li><a href="#">Shop</a></li>
         </ul>
         <div className="nav-buttons-coach">
