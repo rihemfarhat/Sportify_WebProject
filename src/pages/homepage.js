@@ -1,32 +1,100 @@
 import { Link } from "react-router-dom";
-import React from 'react';
+import React  , { useState }from 'react';
 import "../style/HomePage.css";
+import image1 from "../assets/images/image1.jpg";
+import image2 from "../assets/images/image2.jpg";
+import image3 from "../assets/images/image3.jpg";
+
+
+const testimonials = [
+  {
+    name: "Rohith",
+    age: 33,
+    title: "I was in the worst shape of my life",
+    text: `"Sportify helped me get back to a level of fitness that I hadn't seen in a very long time... I've started incorporating good habits into my daily routine."`,
+    image: image1, 
+  },
+  {
+    name: "Jonas",
+    age: 50,
+    title: "Back to a life I want to live",
+    text: `"I have never been stronger than I was during the five years after I started using Sportify."`,
+    image: image2, 
+  },
+  {
+    name: "Lea",
+    age: 27,
+    title: "Once I saw and felt the change, I kept pushing myself",
+    text: `"It was something that other workouts I had done before couldn't give me anymore."`,
+    image:image3, 
+  },
+];
+
+const commentsData = [
+  {
+    name: "Melvin Alex",
+    text: "Really good app. Creates a good daily discipline. Also, it helps when you supplement the exercise with a good diet - this can be through Sportify Nutrition app or your own diet. I lost 4kg in two weeks.",
+    rating: 5,
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
+  },
+  {
+    name: "Paula Rodrigues",
+    text: "After trying several training apps, I can say that Sportify is the most complete one. The programmes are really effective! You can easily track your progress and change along the way. Highly recommend!",
+    rating: 4,
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
+  },
+  {
+    name: "Adolfo Quiroz",
+    text: "I have been using this for 6 months, one hour per day approx and I perceive better results than when I was at the gym. Very satisfied.",
+    rating: 4,
+    image: "https://randomuser.me/api/portraits/men/55.jpg",
+  },
+];
 
 export default function HomePage() {
+  const [comments, setComments] = useState(commentsData);
+  const [newComment, setNewComment] = useState("");
+  const [rating, setRating] = useState(5);
+  const handleAddComment = () => {
+    if (newComment.trim() === "") return;
+    const newEntry = {
+      name: "Anonymous",
+      text: newComment,
+      rating,
+      image: "https://randomuser.me/api/portraits/lego/5.jpg",
+    };
+    setComments([newEntry, ...comments]);
+    setNewComment("");
+  };
+
   return (
     <div className="home-container">
       {/* Navbar */}
       <nav className="navbar">
-        <img src={require('../assets/images/logo.png')} alt='logo' className='logosignup2' />
-        <ul className="nav-links">
-          <li><a href="#">Training</a></li>
-          <li><a href="#">Nutrition</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Shop</a></li>
-        </ul>
-        <div className="nav-buttons-coach">
-          <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
-          </div>
-        <div className="nav-buttons">
-          <Link to="/login" className="login-btn">Start Now</Link>
-          </div>
-          
-      </nav>
+  {/* Logo - clickable to Homepage */}
+  <Link to="/" className="logo-link">
+    <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+  </Link>
 
+  <ul className="nav-links">
+    <li><a href="#">Training</a></li>
+    <li><Link to="/Nutrition">Nutrition</Link></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Shop</a></li>
+  </ul>
+
+  <div className="nav-buttons-coach">
+    <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+  </div>
+
+  <div className="nav-buttons">
+    <Link to="/login" className="login-btn">Start Now</Link>
+  </div>
+</nav>
       {/* Hero Section with Video */}
       <header className="hero-section">
         <video autoPlay loop muted playsInline className="hero-video">
-          <source src={require('../assets/videos/homepage.mp4')} type="video/mp4" />
+          <source src={require('../assets/videos/home.mp4')} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="hero-text-overlay">
@@ -37,32 +105,69 @@ export default function HomePage() {
 
       {/* Success Stories Section */}
       <section className="success-stories">
-        <h1>Success stories</h1>
-        <p className="subtitle">97% of users experience dramatic progress after 12 weeks with the Sporify AI Coach*.</p>
-
-        <div className="testimonials">
-          <div className="testimonial">
-            <h2>I was in the worst shape of my life</h2>
-            <blockquote>
-              “(SPORTIFY) helped me get back to a level of fitness that I hadn’t seen in a very long time... I’ve started incorporating good habits into my daily routine.”
-            </blockquote>
+      <h2 className="title">Success Stories</h2>
+      <p className="subtitle">
+        97% of users experience dramatic progress after 12 weeks with the Sportify AI Coach*.
+      </p>
+      <div className="testimonials">
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className="testimonial-card">
+            <img src={testimonial.image} alt={testimonial.name} className="testimonial-image" />
+            <h3>{testimonial.title}</h3>
+            <p className="testimonial-text">{testimonial.text}</p>
+            <p className="testimonial-name">
+              <strong>{testimonial.name}</strong> • {testimonial.age} years old
+            </p>
           </div>
+        ))}
+      </div>
+      <p className="disclaimer">*Internal survey among 10,000 Sportify users.</p>
+    </section>
 
-          <div className="testimonial">
-            <h2>Back to a life I want to live</h2>
-            <blockquote>
-              “I have never been stronger than I was during the five years after I started using Sportify.”
-            </blockquote>
-          </div>
-
-          <div className="testimonial">
-            <h2>Once I saw and felt the change, I kept pushing myself</h2>
-            <blockquote>
-              “It was something that other workouts I had done before couldn’t give me anymore.”
-            </blockquote>
-          </div>
+    <section className="comments">
+      <h2>What users say about Freeletics</h2>
+      <div className="add-comment">
+        <textarea
+          placeholder="Write your review..."
+          value={newComment}
+          onChange={(e) => setNewComment(e.target.value)}
+        />
+        <div className="rating-input">
+          <label>Rating:</label>
+          <select value={rating} onChange={(e) => setRating(Number(e.target.value))}>
+            {[5, 4, 3, 2, 1].map((star) => (
+              <option key={star} value={star}>
+                {star} ★
+              </option>
+            ))}
+          </select>
         </div>
-      </section>
+        <button onClick={handleAddComment}>Post Review</button>
+      </div>
+      
+      <div className="comments-list">
+        {comments.map((comment, index) => (
+          <div key={index} className="comment">
+            <img src={comment.image} alt={comment.name} />
+            <div className="comment-content">
+              <h3>{comment.name}</h3>
+              <p className="stars">{"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}</p>
+              <p>{comment.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+    <footer className="footer">
+      <div className="footer-content">
+        <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+        <ul className="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </footer>
     </div>
   );
 }

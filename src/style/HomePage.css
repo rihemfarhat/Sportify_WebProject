@@ -106,66 +106,186 @@ margin-top: 2px;}
 }
 
 
-/* Success Stories Section */
 .success-stories {
-  padding: 4rem 2rem;
-  width: 100%;
-  background-color: #f9f9f9;
   text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff;
 }
 
-.success-stories h1 {
+.title {
   font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
+  color: #f5690c;
+  margin-bottom: 10px;
 }
 
-.success-stories .subtitle {
-  font-size: 1.2rem;
+.subtitle {
+  font-size: 1rem;
   color: #666;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .testimonials {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.testimonial {
-  background-color: white;
-  padding: 1.5rem;
+.testimonial-card {
+  background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(223, 104, 7, 0.1);
   text-align: left;
 }
 
-.testimonial h2 {
-  font-size: 1.5rem;
-  color: #007bff;
-  margin-bottom: 1rem;
+.testimonial-image {
+  width: 100%; 
+  height: 250px; /* Set a fixed height */
+  object-fit: cover; /* Ensures the image maintains aspect ratio while filling the container */
+  border-radius: 8px; /* Optional: Adds rounded corners */
 }
 
-.testimonial blockquote {
-  font-size: 1rem;
-  color: #555;
+
+.testimonial-text {
   font-style: italic;
-  margin: 0;
+  color: #444;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .success-stories h1 {
-    font-size: 2rem;
-  }
-
-  .testimonial h2 {
-    font-size: 1.3rem;
-  }
-
-  .testimonial blockquote {
-    font-size: 0.9rem;
-  }
+.testimonial-name {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 10px;
 }
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 20px;
+}
+
+
+.comments {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.add-comment textarea {
+  width: 80%;
+  max-width: 600px;
+  height: 50px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.rating-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-input select {
+  font-size: 16px;
+  padding: 5px;
+}
+
+button {
+  background: black;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  background: #a33131;
+}
+
+.comments-list {
+  max-width: 900px;
+  margin: auto;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-content {
+  text-align: left;
+}
+
+.stars {
+  color: #f79b12;
+  font-size: 18px;
+}
+
+.footer {
+  background-color: rgba(200, 193, 193, 0.8);
+  color: #000000;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+.footer-links a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
