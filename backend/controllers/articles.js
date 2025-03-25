@@ -12,4 +12,4 @@ const getArticles = async (req, res) => {
   }
 };
 
-module.exports = { getArticles };
+module.exports = { getArticles }; // Exporte la fonction pour l'utiliser dans les routes
