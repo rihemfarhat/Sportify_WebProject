@@ -125,7 +125,7 @@ export default function HomePage() {
     </section>
 
     <section className="comments">
-      <h2>What users say about Freeletics</h2>
+      <h2>What users say about Sportify</h2>
       <div className="add-comment">
         <textarea
           placeholder="Write your review..."
