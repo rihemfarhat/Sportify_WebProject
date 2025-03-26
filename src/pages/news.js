@@ -1,61 +1,118 @@
-// /src/pages/BlogPage.js
-import '../style/news.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import "../style/news.css";
 
-const BlogPage = () => {
+const NewsPage = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Effect pour récupérer les articles depuis l'API
   useEffect(() => {
-    axios.get("http://localhost:5000/api/newsDB")
-      .then(response => {
-        setArticles(response.data); // Récupère tous les articles
+    axios
+      .get("http://localhost:5000/api/articles") // Endpoint de l'API
+      .then((response) => {
+        setArticles(response.data);
         setLoading(false);
       })
-      .catch(error => {
-        console.error("Erreur lors de la récupération des articles", error);
-        setError("Une erreur est survenue lors du chargement des articles.");
+      .catch((error) => {
+        console.error("Error fetching articles", error);
+        setError("Failed to load articles. Please try again later.");
         setLoading(false);
       });
   }, []);
 
   return (
-    <div className="blog-page">
-      <h1>Blog</h1>
-      <div className="articles-list">
-        {loading ? (
-          <p>Chargement des articles...</p>
-        ) : error ? (
-          <p className="error">{error}</p>
-        ) : articles.length > 0 ? (
-          articles.map((article, index) => (
-            <div key={index} className="article">
-              {/* Affichage dynamique des éléments */}
-              {article.image && (
-                <img src={article.image} alt="Illustration de l'article" className="article-image" />
-              )}
-              {article.title && (
-                <h2 className="article-title">{article.title}</h2>
-              )}
-              {article.content && (
-                <p className="article-text">{article.content}</p>
-              )}
-              {article.link && (
-                <a href={article.link} className="article-link" target="_blank" rel="noopener noreferrer">
-                  Lire l'article complet
-                </a>
-              )}
+    <div className="news-page-container">
+      {/* Navbar originale */}
+      <nav className="navbar">
+        <Link to="/" className="logo-link">
+          <img
+            src={require("../assets/images/logo.png")}
+            alt="logo"
+            className="logosignup2"
+          />
+        </Link>
+
+        <ul className="nav-links">
+          <li><a href="#">Training</a></li>
+          <li><Link to="/Nutrition">Nutrition</Link></li>
+          <li><Link to="/news">Blog</Link></li>
+          <li><a href="#">Shop</a></li>
+        </ul>
+
+        <div className="nav-buttons-coach">
+          <Link to="/login_coach" className="login-btn-coach">
+            Be a coach
+          </Link>
+        </div>
+
+        <div className="nav-buttons">
+          <Link to="/login" className="login-btn">
+            Start Now
+          </Link>
+        </div>
+      </nav>
+
+      {/* Contenu principal */}
+      <main className="news-main-content">
+        <section className="featured-articles">
+          <h2 className="section-title">Latest Updates</h2>
+          <div className="articles-grid">
+            {articles.map((article) => (
+              <article key={article.id} className="article-card">
+                <div 
+                  className="article-image" 
+                  style={{ backgroundImage: `url(${article.image})` }}
+                ></div>
+                <div className="article-content">
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                  <Link to="#" className="read-more">Read more →</Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      {/* Nouveau Footer avec classes uniques */}
+      <footer className="news-page-footer">
+        <div className="news-footer-container">
+          <div className="news-footer-section">
+            <h4>About Us</h4>
+            <p>Your journey to fitness starts here with our expert guidance and community support.</p>
+          </div>
+          
+          <div className="news-footer-section">
+            <h4>Quick Links</h4>
+            <ul className="news-footer-links">
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/news">News</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+          
+          <div className="news-footer-section">
+            <h4>Connect With Us</h4>
+            <div className="news-social-links">
+              <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+              <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+              <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
             </div>
-          ))
-        ) : (
-          <p>Aucun article trouvé.</p>
-        )}
-      </div>
+          </div>
+        </div>
+        
+        <div className="news-footer-bottom">
+          <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default BlogPage;
+export default NewsPage;

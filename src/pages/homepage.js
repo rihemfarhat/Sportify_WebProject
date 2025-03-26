@@ -4,7 +4,8 @@ import "../style/HomePage.css";
 import image1 from "../assets/images/image1.jpg";
 import image2 from "../assets/images/image2.jpg";
 import image3 from "../assets/images/image3.jpg";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const testimonials = [
   {
@@ -69,9 +70,7 @@ export default function HomePage() {
 
   return (
     <div className="home-container">
-      {/* Navbar */}
       <nav className="navbar">
-  {/* Logo - clickable to Homepage */}
   <Link to="/" className="logo-link">
     <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
   </Link>
@@ -79,7 +78,7 @@ export default function HomePage() {
   <ul className="nav-links">
     <li><a href="#">Training</a></li>
     <li><Link to="/Nutrition">Nutrition</Link></li>
-    <li><Link to="/news">News</Link></li>
+    <li><Link to="/news">Blog</Link></li>
     <li><a href="#">Shop</a></li>
   </ul>
 
@@ -158,16 +157,38 @@ export default function HomePage() {
         ))}
       </div>
     </section>
-    <footer className="footer">
-      <div className="footer-content">
-        <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
-        <ul className="footer-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-    </footer>
+   <footer className="news-page-footer">
+           <div className="news-footer-container">
+             <div className="news-footer-section">
+               <h4>About Us</h4>
+               <p>Your journey to fitness starts here with our expert guidance and community support.</p>
+             </div>
+             
+             <div className="news-footer-section">
+               <h4>Quick Links</h4>
+               <ul className="news-footer-links">
+                 <li><Link to="/">Home</Link></li>
+                 <li><Link to="/about">About</Link></li>
+                 <li><Link to="/news">News</Link></li>
+                 <li><Link to="/contact">Contact</Link></li>
+               </ul>
+             </div>
+             
+             <div className="news-footer-section">
+               <h4>Connect With Us</h4>
+               <div className="news-social-links">
+                 <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
+               </div>
+             </div>
+           </div>
+           
+           <div className="news-footer-bottom">
+             <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+           </div>
+         </footer>
     </div>
   );
 }

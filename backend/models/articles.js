@@ -1,15 +1,12 @@
-// /models/articles.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-// Définition du schéma de l'article
-const articleSchema = new mongoose.Schema({
+const ArticleSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  content: { type: String, required: true },
-  image: { type: String }, // URL de l'image
-  link: { type: String } // Lien vers l'article
+  link: { type: String, required: true }, // URL de l'article
+  summary: { type: String, required: true }, // Extrait de l'article
+  author: { type: String, required: true }, // Auteur de l'article
+  date_published: { type: Date, required: true }, // Date de publication
+  image_url: { type: String, default: null }, // URL de l'image (si présente)
 });
 
-// Création du modèle à partir du schéma
-const Article = mongoose.model('Article', articleSchema, 'articles');
-
-module.exports = Article;
+module.exports = mongoose.model("Article", ArticleSchema);
