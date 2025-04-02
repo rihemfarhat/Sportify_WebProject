@@ -37,10 +37,11 @@ const NewsPage = () => {
         </Link>
 
         <ul className="nav-links">
-          <li><a href="#">Training</a></li>
-          <li><Link to="/Nutrition">Nutrition</Link></li>
-          <li><Link to="/news">Blog</Link></li>
-          <li><a href="#">Shop</a></li>
+        <li><a href="#">Training</a></li>
+    <li><Link to="/Nutrition">Nutrition</Link></li>
+    <li><Link to="/news">Blog</Link></li>
+    <li><Link to="/ProductList">Shop</Link></li> 
+
         </ul>
 
         <div className="nav-buttons-coach">

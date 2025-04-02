@@ -13,6 +13,11 @@ import Nutrition2 from './pages/nutrition_postloguser';
 import Profile from './pages/profile_user';
 import NewsPage from './pages/news';
 import NewsPage2 from './pages/news_postloguser';
+import ProductList from './pages/ProductList';
+import EquipmentPage from './pages/EquipmentPage';
+import MenPage from './pages/MenPage';
+import WomenPage from './pages/WomenPage';
+import AccessoriesPage from './pages/AccessoriesPage';
 import './App.css';
 
 
@@ -35,6 +40,13 @@ function App() {
         <Route path="/news" element={<NewsPage/>} />
         <Route path="/profile_user" element={<Profile/>} />
         <Route path="/news_postloguser" element={<NewsPage2/>} />
+        <Route path="/ProductList" element={<ProductList />} />
+
+        <Route path="/equipment" element={<EquipmentPage />} />
+        <Route path="/men" element={<MenPage />} />
+        <Route path="/women" element={<WomenPage />} />
+        <Route path="/accessories" element={<AccessoriesPage />} />
+   
 
 
 

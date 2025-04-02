@@ -5,6 +5,11 @@ const dotenv = require("dotenv");
 const articleRoutes = require("./routes/articles");
 const authRoutes = require("./routes/user");
 const listEndpoints = require('express-list-endpoints');
+const productRoutes = require('./routes/productRoutes');
+const equipmentRoutes = require('./routes/equipmentRoutes');
+const accessoireRoutes = require('./routes/accessoireRoutes');
+
+
 
 dotenv.config();
 const app = express();
@@ -34,6 +39,13 @@ app.use("/api/articles", (req, res, next) => {
   req.newsDB = newsDB; // Passe la connexion MongoDB à la route des articles
   next();
 }, articleRoutes);
+
+app.use("/api", productRoutes);
+app.use('/api', equipmentRoutes);
+app.use('/api', accessoireRoutes);
+
+
+
 
 console.log("📌 Liste des routes enregistrées :", listEndpoints(app));
 
