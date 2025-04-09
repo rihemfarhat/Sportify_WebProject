@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import "../style/AccessoriesList.css";
 
 const AccessoryList = () => {
@@ -58,10 +59,10 @@ const AccessoryList = () => {
                     </Link>
             
                     <ul className="nav-links2">
-                        <li><a href="#">Training</a></li>
-                        <li><Link to="/Nutrition">Nutrition</Link></li>
-                        <li><Link to="/news">Blog</Link></li>
-                        <li><Link to="/ProductList">Shop</Link></li>
+                        <li><Link to="/TrainingPage" >Training</Link></li>
+                            <li><Link to="/Nutrition">Nutrition</Link></li>
+                            <li><Link to="/news">Blog</Link></li>
+                            <li><Link to="/ProductList">Shop</Link></li> 
                     </ul>
             
                     <form className="search-form">
@@ -137,6 +138,38 @@ const AccessoryList = () => {
                     </div>
                 </section>
             </main>
+            <footer className="news-page-footer">
+            <div className="news-footer-container">
+              <div className="news-footer-section">
+                <h4>About Us</h4>
+                <p>Your journey to fitness starts here with our expert guidance and community support.</p>
+              </div>
+              
+            <div className="news-footer-section">
+                <h4>Quick Links</h4>
+                <ul className="news-footer-links">
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/nutrition">Nutrition</Link></li>
+                  <li><Link to="/news">Blog</Link></li>
+                  <li><Link to="/ProductList">Shop</Link></li>
+                </ul>
+              </div>
+              
+              <div className="news-footer-section">
+                <h4>Connect With Us</h4>
+                <div className="news-social-links">
+                  <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+                  <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+                  <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+                  <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="news-footer-bottom">
+              <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+            </div>
+          </footer>
         </div>
     );
 };

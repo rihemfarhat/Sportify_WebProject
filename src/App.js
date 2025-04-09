@@ -21,7 +21,7 @@ import WomenPage from './pages/WomenPage';
 import AccessoriesPage from './pages/AccessoriesPage';
 import CoachProfile from './pages/coach_form';
 import ProductDetail from './pages/ProductDetail';
-
+import TrainingPage from './pages/Trainingpage';
 import './App.css';
 
 
@@ -57,7 +57,8 @@ function App() {
         <Route path="/men" element={<MenPage />} />
         <Route path="/women" element={<WomenPage />} />
         <Route path="/accessories" element={<AccessoriesPage />} />
-   
+        <Route path="/TrainingPage" element={<TrainingPage />} />
+
 
 
 

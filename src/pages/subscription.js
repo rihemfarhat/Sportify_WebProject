@@ -50,11 +50,10 @@ function Subscription() {
       </Link>
 
       <ul className="nav-links">
-      <li><a href="#">Training</a></li>
-    <li><Link to="/Nutrition">Nutrition</Link></li>
-    <li><Link to="/news">Blog</Link></li>
-    <li><Link to="/ProductList">Shop</Link></li> 
-
+      <li><Link to="/TrainingPage" >Training</Link></li>
+          <li><Link to="/Nutrition">Nutrition</Link></li>
+          <li><Link to="/news">Blog</Link></li>
+          <li><Link to="/ProductList">Shop</Link></li> 
       </ul>
 
       <div className="nav-buttons-coach">
