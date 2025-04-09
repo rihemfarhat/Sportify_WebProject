@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import React  , { useState }from 'react';
-import "../style/homepage_postloguser.css";
-import image1 from "../assets/images/image1.jpg";
-import image2 from "../assets/images/image2.jpg";
-import image3 from "../assets/images/image3.jpg";
+import "../../style/PostLoginUser/homepage_postloguser.css";
+import image1 from "../../assets/images/image1.jpg";
+import image2 from "../../assets/images/image2.jpg";
+import image3 from "../../assets/images/image3.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
@@ -72,14 +72,15 @@ export default function HomePage2() {
     <div className="home-container">
       <nav className="navbar">
   <Link to="/homepage_postloguser" className="logo-link">
-    <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+    <img src={require('../../assets/images/logo.png')} alt="logo" className="logosignup2" />
   </Link>
 
   <ul className="nav-links">
-    <li><a href="#">Training</a></li>
+  <li><a href="#">Training</a></li>
     <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
     <li><Link to="/news_postloguser">Blog</Link></li>
-    <li><a href="#">Shop</a></li>
+    <li><Link to="/ProductList_postloguser">Shop</Link></li> 
+
   </ul>
 
 
@@ -89,7 +90,7 @@ export default function HomePage2() {
 </nav>
       <header className="hero-section">
         <video autoPlay loop muted playsInline className="hero-video">
-          <source src={require('../assets/videos/home.mp4')} type="video/mp4" />
+          <source src={require('../../assets/videos/home.mp4')} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="hero-text-overlay">
@@ -163,10 +164,10 @@ export default function HomePage2() {
               <div className="news-footer-section">
                 <h4>Quick Links</h4>
                 <ul className="news-footer-links">
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/about">About</Link></li>
-                  <li><Link to="/news">News</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
+                  <li><Link to="/homepage_postloguser">Home</Link></li>
+                  <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+                  <li><Link to="/news_postloguser">Blog</Link></li>
+                  <li><Link to="/ProductList_postloguser">Shop</Link></li>
                 </ul>
               </div>
               

@@ -2,10 +2,9 @@ import React from 'react';
 import foodImage from '../assets/images/healthy.jpg'; // Vérifie que le chemin est bon !
 import '../style/Nutrition.css';
 import { Link } from 'react-router-dom';
-import photo1 from '../assets/images/photo1.jpg';
-import photo2 from '../assets/images/photo2.jpg';
-import photo3 from '../assets/images/photo3.jpg';
-import photo4 from '../assets/images/photo4.jpg';
+import carbImage from '../assets/images/carbs.jpg';
+import proteinImage from '../assets/images/protein.jpg';
+import waterImage from '../assets/images/water.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
@@ -19,10 +18,11 @@ const Nutrition = () => {
         </Link>
 
         <ul className="nav-links">
-            <li><a href="#">Training</a></li>
-            <li><Link to="/Nutrition">Nutrition</Link></li>
-            <li><Link to="/news">Blog</Link></li>
-            <li><a href="#">Shop</a></li>
+        <li><a href="#">Training</a></li>
+    <li><Link to="/Nutrition">Nutrition</Link></li>
+    <li><Link to="/news">Blog</Link></li>
+    <li><Link to="/ProductList">Shop</Link></li> 
+
         </ul>
 
         <div className="nav-buttons-coach">
@@ -56,6 +56,50 @@ const Nutrition = () => {
       </div>
     </div>
     
+    <div className="food-importance-container">
+  <h1 className="food-importance-heading">What are the most important foods for exercise?</h1>
+  
+  <div className="food-categories-wrapper">
+    <div className="food-category-card">
+      <img src={carbImage} alt="Carbohydrates" className="food-category-image" />
+      <div className="food-category-details">
+        <h2 className="food-category-name">Carbohydrate</h2>
+        <p className="food-category-description">
+          The main role of carbohydrates in physical activity is to provide energy. 
+          Carbohydrate is the key fuel for the brain and for muscles during exercise.
+        </p>
+        <a href="#carb-details" className="food-category-link">Learn more</a>
+      </div>
+    </div>
+    <div className="food-category-separator"></div>
+    
+    <div className="food-category-card">
+      <img src={proteinImage} alt="Protein" className="food-category-image" />
+      <div className="food-category-details">
+        <h2 className="food-category-name">Protein</h2>
+        <p className="food-category-description">
+          Protein is important in sports performance as it can boost glycogen storage, 
+          reduce muscle soreness and promote muscle repair.
+        </p>
+        <a href="#protein-details" className="food-category-link">Learn more</a>
+      </div>
+    </div>
+    <div className="food-category-separator"></div>
+    
+    <div className="food-category-card">
+      <img src={waterImage} alt="Water" className="food-category-image" />
+      <div className="food-category-details">
+        <h2 className="food-category-name">Water</h2>
+        <p className="food-category-description">
+          Drinking enough fluid is essential for maximising exercise performance 
+          and ensuring optimum recovery.
+        </p>
+        <a href="#water-details" className="food-category-link">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
       
     <footer className="news-page-footer">
             <div className="news-footer-container">
@@ -64,13 +108,13 @@ const Nutrition = () => {
                 <p>Your journey to fitness starts here with our expert guidance and community support.</p>
               </div>
               
-              <div className="news-footer-section">
+            <div className="news-footer-section">
                 <h4>Quick Links</h4>
                 <ul className="news-footer-links">
                   <li><Link to="/">Home</Link></li>
-                  <li><Link to="/about">About</Link></li>
-                  <li><Link to="/news">News</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
+                  <li><Link to="/nutrition">Nutrition</Link></li>
+                  <li><Link to="/news">Blog</Link></li>
+                  <li><Link to="/ProductList">Shop</Link></li>
                 </ul>
               </div>
               

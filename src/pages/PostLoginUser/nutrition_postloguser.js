@@ -1,11 +1,7 @@
 import React from 'react';
-import foodImage from '../assets/images/healthy.jpg'; // Vérifie que le chemin est bon !
-import '../style/Nutrition.css';
+import foodImage from '../../assets/images/healthy.jpg'; // Vérifie que le chemin est bon !
+import '../../style/PostLoginUser/nutrition_postloguser.css';
 import { Link } from 'react-router-dom';
-import photo1 from '../assets/images/photo1.jpg';
-import photo2 from '../assets/images/photo2.jpg';
-import photo3 from '../assets/images/photo3.jpg';
-import photo4 from '../assets/images/photo4.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
@@ -14,15 +10,16 @@ const Nutrition2 = () => {
     <div>
                 <nav className="navbar">
             <Link to="/homepage_postloguser" className="logo-link">
-              <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+              <img src={require('../../assets/images/logo.png')} alt="logo" className="logosignup2" />
             </Link>
           
-            <ul className="nav-links">
-              <li><a href="#">Training</a></li>
-              <li><Link to="/Nutrition">Nutrition</Link></li>
-              <li><Link to="/news_postloguser">Blog</Link></li>
-              <li><a href="#">Shop</a></li>
-            </ul>
+  <ul className="nav-links">
+  <li><a href="#">Training</a></li>
+    <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+    <li><Link to="/news_postloguser">Blog</Link></li>
+    <li><Link to="/ProductList_postloguser">Shop</Link></li> 
+
+  </ul>
           
           
             <div className="profile-buttons">
@@ -60,16 +57,15 @@ const Nutrition2 = () => {
                 <p>Your journey to fitness starts here with our expert guidance and community support.</p>
               </div>
               
-              <div className="news-footer-section">
-                <h4>Quick Links</h4>
-                <ul className="news-footer-links">
-                  <li><Link to="/">Home</Link></li>
-                  <li><Link to="/about">About</Link></li>
-                  <li><Link to="/news">News</Link></li>
-                  <li><Link to="/contact">Contact</Link></li>
-                </ul>
-              </div>
-              
+                           <div className="news-footer-section">
+                             <h4>Quick Links</h4>
+                             <ul className="news-footer-links">
+                               <li><Link to="/homepage_postloguser">Home</Link></li>
+                               <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+                               <li><Link to="/news_postloguser">Blog</Link></li>
+                               <li><Link to="/ProductList_postloguser">Shop</Link></li>
+                             </ul>
+                           </div>
               <div className="news-footer-section">
                 <h4>Connect With Us</h4>
                 <div className="news-social-links">

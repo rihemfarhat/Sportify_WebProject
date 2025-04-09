@@ -1,4 +1,52 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(200, 193, 193, 0.8);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+}
 
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin-left: 100px;
+}
+
+.nav-links a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-buttons,.nav-buttons-coach {
+  background-color: #000000;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.nav-buttons{margin-right: 20px;}
+
+.login-btn,.login-btn-coach {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+ 
+}
+
+.nav-buttons-coach{margin-left: 500px;}
+
+
+.navbar .logosignup2{width: 150x ; height: 50px; margin-left: 20px;
+  margin-top: 2px;}
 /* Conteneur principal */
 .nutrition-container {
     position: relative;
@@ -11,6 +59,94 @@
     color: white;
     overflow: hidden;
   }
+  .food-importance-container {
+    max-width: 1200px; /* Augmentation de la largeur */
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  .food-importance-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+    font-weight: 600;
+}
+  .food-categories-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 50px;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Carte de catégorie */
+.food-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px; /* Taille augmentée */
+    height: 600px; /* Hauteur fixée */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* Image de la catégorie */
+.food-category-image {
+    width: 100%; /* Largeur totale */
+    height: 50%; /* Moitié supérieure */
+    object-fit: cover; /* Remplit bien l'espace */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Détails de la catégorie */
+.food-category-details {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Nom de la catégorie */
+.food-category-name {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    color: #000;
+    font-weight: 700;
+}
+
+/* Description de la catégorie */
+.food-category-description {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Lien "Learn more" */
+.food-category-link {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0066cc;
+    text-decoration: none;
+    margin-top: auto; /* Place en bas du contenu */
+    padding-top: 10px;
+}
+
+.food-category-link:hover {
+    text-decoration: underline;
+}
+
   
   /* Image pleine page en haute qualité */
   .nutrition-image {
@@ -72,6 +208,105 @@
   .nutrition-button:hover {
     background-color: #ddd;
   }
+
+
+  /* Section des détails des glucides */
+.carbohydrate-section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  opacity: 0; /* Initialement invisible */
+  transform: translateY(20px); /* Section légèrement décalée vers le bas */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Classe visible activée lors du clic */
+.carbohydrate-section.visible {
+  opacity: 1; /* Visible quand la section est activée */
+  transform: translateY(0); /* Remet la section en place */
+}
+
+/* Titre de la section */
+.carb-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Changement de couleur au survol du titre */
+.carb-title:hover {
+  color: #0066cc;
+}
+
+/* Sous-titres */
+h3 {
+  font-size: 1.8rem;
+  color: #444;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Paragraphe */
+.carbohydrate-section p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Liste des sources de glucides */
+.carbohydrate-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Liens dans la section */
+.carbohydrate-section a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Changement de couleur du lien au survol */
+.carbohydrate-section a:hover {
+  color: #004d99;
+}
+
+/* Espacement général entre les éléments */
+.carbohydrate-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Ajouter un effet de défilement fluide */
+html {
+  scroll-behavior: smooth; /* Défilement fluide natif */
+}
+
+/* Définir le style des liens "Learn More" */
+.food-category-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.food-category-link:hover {
+  text-decoration: underline;
+  color: #004d99;
+  transform: scale(1.1); /* Zoom léger au survol */
+}
+
 
   .news-page-footer {
     background-color: #222;

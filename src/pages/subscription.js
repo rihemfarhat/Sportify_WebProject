@@ -50,10 +50,11 @@ function Subscription() {
       </Link>
 
       <ul className="nav-links">
-        <li><a href="#">Training</a></li>
-        <li><Link to="/Nutrition">Nutrition</Link></li>
-        <li><Link to="/news">Blog</Link></li>
-        <li><a href="#">Shop</a></li>
+      <li><a href="#">Training</a></li>
+    <li><Link to="/Nutrition">Nutrition</Link></li>
+    <li><Link to="/news">Blog</Link></li>
+    <li><Link to="/ProductList">Shop</Link></li> 
+
       </ul>
 
       <div className="nav-buttons-coach">
@@ -132,15 +133,15 @@ function Subscription() {
                <p>Your journey to fitness starts here with our expert guidance and community support.</p>
              </div>
              
-             <div className="news-footer-section">
-               <h4>Quick Links</h4>
-               <ul className="news-footer-links">
-                 <li><Link to="/">Home</Link></li>
-                 <li><Link to="/about">About</Link></li>
-                 <li><Link to="/news">News</Link></li>
-                 <li><Link to="/contact">Contact</Link></li>
-               </ul>
-             </div>
+              <div className="news-footer-section">
+                <h4>Quick Links</h4>
+                <ul className="news-footer-links">
+                  <li><Link to="/">Home</Link></li>
+                  <li><Link to="/nutrition">Nutrition</Link></li>
+                  <li><Link to="/news">Blog</Link></li>
+                  <li><Link to="/ProductList">Shop</Link></li>
+                </ul>
+              </div>
              
              <div className="news-footer-section">
                <h4>Connect With Us</h4>

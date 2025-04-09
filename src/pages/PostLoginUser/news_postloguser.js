@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import "../style/news.css";
+import "../../style/PostLoginUser/news_postloguser.css";
 
 const NewsPage2 = () => {
   const [articles, setArticles] = useState([]);
@@ -29,16 +29,16 @@ const NewsPage2 = () => {
       {/* Navbar originale */}
      <nav className="navbar">
        <Link to="/homepage_postloguser" className="logo-link">
-         <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+         <img src={require('../../assets/images/logo.png')} alt="logo" className="logosignup2" />
        </Link>
      
-       <ul className="nav-links">
-         <li><a href="#">Training</a></li>
-         <li><Link to="/Nutrition">Nutrition</Link></li>
-         <li><Link to="/news">Blog</Link></li>
-         <li><a href="#">Shop</a></li>
-       </ul>
-     
+        <ul className="nav-links">
+        <li><a href="#">Training</a></li>
+          <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+          <li><Link to="/news_postloguser">Blog</Link></li>
+          <li><Link to="/ProductList_postloguser">Shop</Link></li> 
+
+        </ul>
      
        <div className="profile-buttons">
          <Link to="/profile_user" className="profile-btn">Profile</Link>
@@ -75,15 +75,15 @@ const NewsPage2 = () => {
             <p>Your journey to fitness starts here with our expert guidance and community support.</p>
           </div>
           
-          <div className="news-footer-section">
-            <h4>Quick Links</h4>
-            <ul className="news-footer-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/news">News</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
-          </div>
+                           <div className="news-footer-section">
+                             <h4>Quick Links</h4>
+                             <ul className="news-footer-links">
+                               <li><Link to="/homepage_postloguser">Home</Link></li>
+                               <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+                               <li><Link to="/news_postloguser">Blog</Link></li>
+                               <li><Link to="/ProductList_postloguser">Shop</Link></li>
+                             </ul>
+                           </div>
           
           <div className="news-footer-section">
             <h4>Connect With Us</h4>
