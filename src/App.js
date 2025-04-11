@@ -31,6 +31,7 @@ function App() {
     
     <div className="app-container">
       <Routes>
+
         <Route path="/" element={<HomePage />} />
         <Route path="/homepage_postloguser" element={<HomePage2 />} />
 
@@ -50,7 +51,7 @@ function App() {
         <Route path="/news_postloguser" element={<NewsPage2/>} />
         <Route path="/ProductList" element={<ProductList />} />
        < Route path="/ProductList_postloguser" element={<ProductList2 />} />
-       <Route path="/product/:id" element={<ProductDetail />} />
+       <Route path="/product/:id" element={<ProductDetail />} /> 
 
 
         <Route path="/equipment" element={<EquipmentPage />} />
