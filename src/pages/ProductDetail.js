@@ -69,39 +69,33 @@ const ProductDetail = () => {
 
     return (
         <div className="product-detail-page">
-            <nav className="navbar2">
-                            <Link to="/" className="logo-link2">
-                                <img
-                                    src={require("../assets/images/logo.png")}
-                                    alt="logo"
-                                    className="logosignup2"
-                                />
-                            </Link>
-            
-                            <ul className="nav-links2">
-                                <li><Link to="/TrainingPage" >Training</Link></li>
-                                <li><Link to="/Nutrition">Nutrition</Link></li>
-                                <li><Link to="/news">Blog</Link></li>
-                                <li><Link to="/ProductList">Shop</Link></li>
-                            </ul>
-            
-
-            
-                            <div className="nav-icons2">
-                                <Link to="/CartPage" className="nav-icon2">
-                                    <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-                                </Link>
-                            </div>
-            
-                            <div className="nav-buttons-coach2">
-                                <Link to="/login_coach" className="login-btn-coach2">Be a coach</Link>
-                            </div>
-            
-                            <div className="nav-buttons2">
-                                <Link to="/login" className="login-btn2">Start Now</Link>
-                            </div>
-                        </nav>
-            
+      <nav className="navbar">
+         <Link to="/" className="logo-link">
+           <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+         </Link>
+     
+         <div className="nav-center">
+           <ul className="nav-links">
+             <li><Link to="/TrainingPage">Training</Link></li>
+             <li><Link to="/Nutrition">Nutrition</Link></li>
+             <li><Link to="/news">Blog</Link></li>
+             <li><Link to="/ProductList">Shop</Link></li>
+           </ul>
+         </div>
+     
+         <div className="nav-right">
+           <div className="nav-coach-cart">
+             <Link to="/CartPage" className="nav-icon">
+               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+             </Link>
+             <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+           </div>
+     
+           <div className="nav-buttons">
+             <Link to="/login" className="login-btn">Start Now</Link>
+           </div>
+         </div>
+       </nav>
             <div className="product-badges">
                 <span className="badge new">NOUVEAU</span>
                 {Math.random() > 0.5 && <span className="badge eco"><FontAwesomeIcon icon={faLeaf} /> ECO</span>}
@@ -111,7 +105,6 @@ const ProductDetail = () => {
             <div className="product-detail-container">
                 <div className="product-image-container">
                     <img src={product.image} alt={product.title} className="product-detail-image" />
-                    <div className="image-hover-effect"></div>
                 </div>
 
                 <div className="product-detail-info">
@@ -206,38 +199,38 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-            <footer className="news-page-footer">
-                <div className="news-footer-container">
-                    <div className="news-footer-section">
-                        <h4>About Us</h4>
-                        <p>Your journey to fitness starts here with our expert guidance and community support.</p>
-                    </div>
-                    
-                    <div className="news-footer-section">
-                        <h4>Quick Links</h4>
-                        <ul className="news-footer-links">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/nutrition">Nutrition</Link></li>
-                            <li><Link to="/news">Blog</Link></li>
-                            <li><Link to="/ProductList">Shop</Link></li>
-                        </ul>
-                    </div>
-                    
-                    <div className="news-footer-section">
-                        <h4>Connect With Us</h4>
-                        <div className="news-social-links">
-                            <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
-                            <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-                            <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-                            <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className="news-footer-bottom">
-                    <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
-                </div>
-            </footer>
+   <footer className="page-footer">
+           <div className="footer-container">
+             <div className="footer-section">
+               <h4>About Us</h4>
+               <p>Your journey to fitness starts here with our expert guidance and community support.</p>
+             </div>
+             
+             <div className="footer-section">
+            <h4>Quick Links</h4>
+             <ul className="footer-links">
+                 <li><Link to="/">Home</Link></li>
+                 <li><Link to="/nutrition">Nutrition</Link></li>
+                <li><Link to="/news">Blog</Link></li>
+                <li><Link to="/ProductList">Shop</Link></li>
+             </ul>
+            </div>
+             
+             <div className="footer-section">
+               <h4>Connect With Us</h4>
+               <div className="social-links">
+                 <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+                 <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
+               </div>
+             </div>
+           </div>
+           
+           <div className="news-footer-bottom">
+             <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+           </div>
+         </footer>
         </div>
     );
 };

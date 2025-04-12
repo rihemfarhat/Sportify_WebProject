@@ -1,36 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../style/CartPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faShoppingBag, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faShoppingCart, faLeaf, faBolt, faStar } from '@fortawesome/free-solid-svg-icons';
-
+import { faTrash, faShoppingBag, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
     const [cart, setCart] = useState([]);
-    const [recommendedProducts] = useState([
-        {
-            id: 1,
-            title: "Nike Air Max 270",
-            price: 299.99,
-            image: "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/skwgyqrbfzhu6uyeh0gg/air-max-270-mens-shoes-KkLcGR.png",
-            sizes: [38, 39, 40, 41, 42]
-        },
-        {
-            id: 2,
-            title: "Adidas Ultraboost 21",
-            price: 349.99,
-            image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Ultraboost_21_Shoes_Black_GZ0127_01_standard.jpg",
-            sizes: [39, 40, 41, 42, 43]
-        }
-    ]);
+    const [allProducts, setAllProducts] = useState([]);
+    const [recommendedProducts, setRecommendedProducts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
         setCart(storedCart);
     }, []);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/api/products")
+            .then(response => setAllProducts(response.data))
+            .catch(err => console.error("Error loading products", err));
+    }, []);
+
+    useEffect(() => {
+        if (allProducts.length && cart.length) {
+            const recommendations = allProducts.filter(product =>
+                cart.some(cartItem =>
+                    product.title.toLowerCase().includes(cartItem.title.split(' ')[0].toLowerCase()) &&
+                    product.title !== cartItem.title
+                )
+            );
+            setRecommendedProducts(recommendations);
+        }
+    }, [allProducts, cart]);
+
+    const handleAddRecommendedToCart = (product) => {
+        navigate(`/product/${product._id}`); // Redirect to product detail page
+    };
 
     const handleRemove = (indexToRemove) => {
         const updatedCart = cart.filter((_, index) => index !== indexToRemove);
@@ -38,55 +45,55 @@ const CartPage = () => {
         localStorage.setItem("cart", JSON.stringify(updatedCart));
     };
 
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    const subtotal = cart.reduce((sum, item) => {
+        const price = typeof item.price === 'string' 
+            ? parseFloat(item.price.replace(',', '.')) 
+            : item.price;
+        return sum + (price * (item.quantity || 1));
+    }, 0);
+    
     const deliveryFee = 8.00;
     const total = subtotal + deliveryFee;
 
     return (
         <div className="creative-cart">
-             <nav className="navbar2">
-                            <Link to="/" className="logo-link2">
-                                <img
-                                    src={require("../assets/images/logo.png")}
-                                    alt="logo"
-                                    className="logosignup2"
-                                />
-                            </Link>
-            
-                            <ul className="nav-links2">
-                                <li><Link to="/TrainingPage" >Training</Link></li>
-                                <li><Link to="/Nutrition">Nutrition</Link></li>
-                                <li><Link to="/news">Blog</Link></li>
-                                <li><Link to="/ProductList">Shop</Link></li>
-                            </ul>
-            
+            {/* Same Navbar */}
+            <nav className="navbar">
+                <Link to="/" className="logo-link">
+                    <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+                </Link>
+                <div className="nav-center">
+                    <ul className="nav-links">
+                        <li><Link to="/TrainingPage">Training</Link></li>
+                        <li><Link to="/Nutrition">Nutrition</Link></li>
+                        <li><Link to="/news">Blog</Link></li>
+                        <li><Link to="/ProductList">Shop</Link></li>
+                    </ul>
+                </div>
+                <div className="nav-right">
+                    <div className="nav-coach-cart">
+                        <Link to="/CartPage" className="nav-icon">
+                            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                        </Link>
+                        <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+                    </div>
+                    <div className="nav-buttons">
+                        <Link to="/login" className="login-btn">Start Now</Link>
+                    </div>
+                </div>
+            </nav>
 
-            
-                            <div className="nav-icons2">
-                                <Link to="/CartPage" className="nav-icon2">
-                                    <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-                                </Link>
-                            </div>
-            
-                            <div className="nav-buttons-coach2">
-                                <Link to="/login_coach" className="login-btn-coach2">Be a coach</Link>
-                            </div>
-            
-                            <div className="nav-buttons2">
-                                <Link to="/login" className="login-btn2">Start Now</Link>
-                            </div>
-                        </nav>
             <div className="cart-header">
                 <FontAwesomeIcon icon={faShoppingBag} className="cart-icon" />
-                <h1 className="cart-title">Mon Panier <span className="cart-count">{cart.length} article{cart.length !== 1 ? 's' : ''}</span></h1>
+                <h1 className="cart-title">My Cart <span className="cart-count">{cart.length} item{cart.length !== 1 ? 's' : ''}</span></h1>
             </div>
 
             {cart.length === 0 ? (
                 <div className="empty-cart-creative">
                     <FontAwesomeIcon icon={faShoppingBag} className="empty-cart-icon" />
-                    <h2>Votre panier est vide</h2>
-                    <p>Parcourez notre collection et trouvez des articles qui vous plaisent</p>
-                    <button className="browse-btn">Découvrir nos produits</button>
+                    <h2>Your cart is empty</h2>
+                    <p>Browse our collection and find items you like</p>
+                    <button className="browse-btn">Discover Our Products</button>
                 </div>
             ) : (
                 <div className="cart-content-creative">
@@ -95,23 +102,22 @@ const CartPage = () => {
                             <div key={index} className="cart-item-creative">
                                 <div className="product-image-container">
                                     <img src={item.image} alt={item.title} className="product-image" />
-                                    <button className="quick-view-btn">Aperçu rapide</button>
                                 </div>
                                 <div className="product-details">
                                     <h3 className="product-title">{item.title}</h3>
-                                    <p className="product-size">Pointure: {item.selectedSize || 'Non spécifiée'}</p>
-                                    <p className="product-price">{item.price.toFixed(2)} TND</p>
+                                    <p className="product-size">Size: {item.selectedSize || 'Not specified'}</p>
+                                    <p className="product-price">
+                                    {typeof item.price === 'string' 
+                                        ? parseFloat(item.price.replace(',', '.')).toFixed(2) 
+                                        : item.price.toFixed(2)
+                                    } TND
+                                    </p>
                                     <div className="product-actions">
-                                        <button 
-                                            onClick={() => handleRemove(index)} 
-                                            className="remove-button"
-                                        >
-                                            <FontAwesomeIcon icon={faTrash} className="trash-icon" />
-                                            Supprimer
+                                        <button onClick={() => handleRemove(index)} className="remove-button">
+                                            <FontAwesomeIcon icon={faTrash} className="trash-icon" /> Remove
                                         </button>
                                         <button className="wishlist-button">
-                                            <FontAwesomeIcon icon={faHeart} />
-                                            Ajouter à la liste de souhaits
+                                            <FontAwesomeIcon icon={faHeart} /> Add to Wishlist
                                         </button>
                                     </div>
                                 </div>
@@ -120,86 +126,91 @@ const CartPage = () => {
                     </div>
 
                     <div className="cart-summary">
-                        <h3>Résumé de la commande</h3>
+                        <h3>Order Summary</h3>
                         <div className="summary-table">
                             <div className="summary-row">
-                                <span>Articles</span>
+                                <span>Items</span>
                                 <span>{subtotal.toFixed(2)} TND</span>
                             </div>
                             <div className="summary-row">
-                                <span>Livraison</span>
+                                <span>Delivery</span>
                                 <span>{deliveryFee.toFixed(2)} TND</span>
                             </div>
                             <div className="summary-row discount-row">
-                                <span>Code promo</span>
-                                <span className="apply-discount">Appliquer</span>
+                                <span>Promo Code</span>
+                                <span className="apply-discount">Apply</span>
                             </div>
                             <div className="summary-row total-row">
-                                <span>Total TTC</span>
+                                <span>Total incl. tax</span>
                                 <span>{total.toFixed(2)} TND</span>
                             </div>
                         </div>
-
-                        <button className="checkout-button">PROCÉDER AU PAIEMENT</button>
+                        <button className="checkout-button">PROCEED TO CHECKOUT</button>
                         <p className="secure-checkout">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="#4CAF50"/>
-                                <path d="M16 10H8V8H16V10Z" fill="white"/>
-                                <path d="M16 14H8V12H16V14Z" fill="white"/>
-                            </svg>
-                            Paiement sécurisé
+                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="#4CAF50"/><path d="M16 10H8V8H16V10Z" fill="white"/><path d="M16 14H8V12H16V14Z" fill="white"/></svg>
+                            Secure Payment
                         </p>
                     </div>
 
-                    <div className="recommendations-section">
-                        <div className="divider">
-                            <span>VOUS POURRIEZ AUSSI AIMER</span>
+                    {recommendedProducts.length > 0 && (
+                        <div className="recommendations-section">
+                            <div className="divider">
+                                <span>YOU MAY ALSO LIKE</span>
+                            </div>
+                            <div className="recommended-products">
+                                {recommendedProducts.map(product => (
+                                    <div key={product._id} className="recommended-product">
+                                        <img src={product.image} alt={product.title} />
+                                        <h4>{product.title}</h4>
+                                        <p>
+                                            {typeof product.price === 'string' 
+                                                ? parseFloat(product.price.replace(',', '.')).toFixed(2) 
+                                                : product.price.toFixed(2)
+                                            } TND
+                                        </p>
+                                        <button 
+                                            className="add-to-cart-btn"
+                                            onClick={() => handleAddRecommendedToCart(product)}
+                                        >
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="recommended-products">
-                            {recommendedProducts.map(product => (
-                                <div key={product.id} className="recommended-product">
-                                    <img src={product.image} alt={product.title} />
-                                    <h4>{product.title}</h4>
-                                    <p>{product.price.toFixed(2)} TND</p>
-                                    <button className="add-to-cart-btn">Ajouter au panier</button>
-                                </div>
-                            ))}
+                    )}
+                </div>
+            )}
+
+            <footer className="news-page-footer">
+                <div className="news-footer-container">
+                    <div className="news-footer-section">
+                        <h4>About Us</h4>
+                        <p>Your journey to fitness starts here with our expert guidance and community support.</p>
+                    </div>
+                    <div className="news-footer-section">
+                        <h4>Quick Links</h4>
+                        <ul className="news-footer-links">
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/nutrition">Nutrition</Link></li>
+                            <li><Link to="/news">Blog</Link></li>
+                            <li><Link to="/ProductList">Shop</Link></li>
+                        </ul>
+                    </div>
+                    <div className="news-footer-section">
+                        <h4>Connect With Us</h4>
+                        <div className="news-social-links">
+                            <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+                            <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+                            <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+                            <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
                         </div>
                     </div>
                 </div>
-            )}
-            <footer className="news-page-footer">
-                            <div className="news-footer-container">
-                                <div className="news-footer-section">
-                                    <h4>About Us</h4>
-                                    <p>Your journey to fitness starts here with our expert guidance and community support.</p>
-                                </div>
-                                
-                                <div className="news-footer-section">
-                                    <h4>Quick Links</h4>
-                                    <ul className="news-footer-links">
-                                        <li><Link to="/">Home</Link></li>
-                                        <li><Link to="/nutrition">Nutrition</Link></li>
-                                        <li><Link to="/news">Blog</Link></li>
-                                        <li><Link to="/ProductList">Shop</Link></li>
-                                    </ul>
-                                </div>
-                                
-                                <div className="news-footer-section">
-                                    <h4>Connect With Us</h4>
-                                    <div className="news-social-links">
-                                        <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
-                                        <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-                                        <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
-                                        <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div className="news-footer-bottom">
-                                <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
-                            </div>
-                        </footer>
+                <div className="news-footer-bottom">
+                    <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
     );
 };

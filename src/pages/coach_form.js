@@ -59,7 +59,7 @@ function CoachProfile() {
   
       // Clear error and redirect after successful form submission
       setError('');
-      navigate('/homepage');
+      navigate('/homepage_postloguser');
     } catch (error) {
       setError('Error submitting form: ' + error.message);
     }

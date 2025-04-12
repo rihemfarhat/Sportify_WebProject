@@ -1,41 +1,33 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import '../style/TrainingPage.css';
+import '../../style/TrainingPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-import trainingImage from '../assets/images/training.jpg';
+import trainingImage from '../../assets/images/training.jpg';
 
-const TrainingPage = () => {
+const TrainingPage2 = () => {
   return (
-    <div className="training-container">
-      <nav className="navbar">
-        <Link to="/" className="logo-link">
-          <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
-        </Link>
-
-        <div className="nav-center">
-          <ul className="nav-links">
-            <li><Link to="/TrainingPage">Training</Link></li>
-            <li><Link to="/Nutrition">Nutrition</Link></li>
-            <li><Link to="/news">Blog</Link></li>
-            <li><Link to="/ProductList">Shop</Link></li>
-          </ul>
-        </div>
-
-        <div className="nav-right">
-          <div className="nav-coach-cart">
-            <Link to="/CartPage" className="nav-icon">
-              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                <div className="training-container">
+                <nav className="navbar">
+            <Link to="/homepage_postloguser" className="logo-link">
+                <img src={require('../../assets/images/logo.png')} alt="logo" className="logosignup2" />
             </Link>
-            <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
-          </div>
-          <div className="nav-buttons">
-            <Link to="/login" className="login-btn">Start Now</Link>
-          </div>
-        </div>
-      </nav>
+            
+            <ul className="nav-links">
+            <li><a href="Trainingpage_postloguser">Training</a></li>
+            <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+                <li><Link to="/news_postloguser">Blog</Link></li>
+                <li><Link to="/ProductList_postloguser">Shop</Link></li> 
+            
+            </ul>
+            
+            
+            <div className="profile-buttons">
+                <Link to="/profile_user" className="profile-btn">Profile</Link>
+            </div>
+            </nav>
 
       <div className="training-main">
         <div className="text-section">
@@ -87,4 +79,4 @@ const TrainingPage = () => {
   );
 };
 
-export default TrainingPage;
+export default TrainingPage2;

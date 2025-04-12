@@ -76,10 +76,10 @@ export default function HomePage2() {
   </Link>
 
   <ul className="nav-links">
-      <li><Link to="/TrainingPage" >Training</Link></li>
-      <li><Link to="/Nutrition">Nutrition</Link></li>
-      <li><Link to="/news">Blog</Link></li>
-      <li><Link to="/ProductList">Shop</Link></li> 
+  <li><a href="Trainingpage_postloguser">Training</a></li>
+    <li><Link to="/nutrition_postloguser">Nutrition</Link></li>
+    <li><Link to="/news_postloguser">Blog</Link></li>
+    <li><Link to="/ProductList_postloguser">Shop</Link></li> 
 
   </ul>
 

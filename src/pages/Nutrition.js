@@ -7,34 +7,39 @@ import proteinImage from '../assets/images/protein.jpg';
 import waterImage from '../assets/images/water.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 
 const Nutrition = () => {
   return (
     <div>
-            <nav className="navbar">
-        {/* Logo - clickable to Homepage */}
-        <Link to="/" className="logo-link">
-            <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
-        </Link>
-
-        <ul className="nav-links">
-       <li><Link to="/TrainingPage" >Training</Link></li>
-           <li><Link to="/Nutrition">Nutrition</Link></li>
-           <li><Link to="/news">Blog</Link></li>
-           <li><Link to="/ProductList">Shop</Link></li> 
-
-        </ul>
-
-        <div className="nav-buttons-coach">
-            <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
-        </div>
-
-        <div className="nav-buttons">
-            <Link to="/login" className="login-btn">Start Now</Link>
-        </div>
-        </nav>
-                    
-
+         <nav className="navbar">
+           <Link to="/" className="logo-link">
+             <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+           </Link>
+       
+           <div className="nav-center">
+             <ul className="nav-links">
+               <li><Link to="/TrainingPage">Training</Link></li>
+               <li><Link to="/Nutrition">Nutrition</Link></li>
+               <li><Link to="/news">Blog</Link></li>
+               <li><Link to="/ProductList">Shop</Link></li>
+             </ul>
+           </div>
+       
+           <div className="nav-right">
+             <div className="nav-coach-cart">
+               <Link to="/CartPage" className="nav-icon">
+                 <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+               </Link>
+               <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+             </div>
+       
+             <div className="nav-buttons">
+               <Link to="/login" className="login-btn">Start Now</Link>
+             </div>
+           </div>
+         </nav>
     
     <div className="nutrition-container">
         
@@ -101,26 +106,26 @@ const Nutrition = () => {
 </div>
 
       
-    <footer className="news-page-footer">
-            <div className="news-footer-container">
-              <div className="news-footer-section">
+    <footer className="page-footer">
+            <div className="footer-container">
+              <div className="footer-section">
                 <h4>About Us</h4>
                 <p>Your journey to fitness starts here with our expert guidance and community support.</p>
               </div>
               
-            <div className="news-footer-section">
-                <h4>Quick Links</h4>
-                <ul className="news-footer-links">
+              <div className="footer-section">
+             <h4>Quick Links</h4>
+              <ul className="footer-links">
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/nutrition">Nutrition</Link></li>
-                  <li><Link to="/news">Blog</Link></li>
-                  <li><Link to="/ProductList">Shop</Link></li>
-                </ul>
-              </div>
+                 <li><Link to="/news">Blog</Link></li>
+                 <li><Link to="/ProductList">Shop</Link></li>
+              </ul>
+             </div>
               
-              <div className="news-footer-section">
+              <div className="footer-section">
                 <h4>Connect With Us</h4>
-                <div className="news-social-links">
+                <div className="social-links">
                   <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
                   <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
                   <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
@@ -133,7 +138,6 @@ const Nutrition = () => {
               <p>&copy; 2025 SPORTIFY all in One. All rights reserved.</p>
             </div>
           </footer>
-    
     </div>
   );
 };

@@ -22,6 +22,8 @@ import AccessoriesPage from './pages/AccessoriesPage';
 import CoachProfile from './pages/coach_form';
 import ProductDetail from './pages/ProductDetail';
 import TrainingPage from './pages/Trainingpage';
+import TrainingPage2 from './pages/PostLoginUser/Trainingpage_postloguser';
+
 import CartPage from './pages/CartPage';
 import './App.css';
 
@@ -62,6 +64,8 @@ function App() {
         <Route path="/women" element={<WomenPage />} />
         <Route path="/accessories" element={<AccessoriesPage />} />
         <Route path="/TrainingPage" element={<TrainingPage />} />
+        <Route path="/Trainingpage_postloguser" element={<TrainingPage2 />} />
+
 
 
 

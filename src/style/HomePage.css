@@ -1,65 +1,77 @@
-/* HomePage.css */
-
-
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(200, 193, 193, 0.8);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    height: 80px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin-left: 100px;
-  }
-  
-  .nav-links a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .nav-buttons,.nav-buttons-coach {
-    background-color: #000000;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-  }
-  .nav-buttons{margin-right: 20px;}
-
-  .login-btn,.login-btn-coach {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-   
-  }
- 
-  .nav-buttons-coach{margin-left: 500px;}
-
-
-  .navbar .logosignup2{width: 150x ; height: 50px; margin-left: 20px;
-    margin-top: 2px;}
-  
-  /* Style de base pour la page */
-.home-container {
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  background-color: rgba(200, 193, 193, 0.8);
+  position: fixed;
   width: 100%;
+  z-index: 1000;
+  height: 80px;
+  padding: 0 20px;
 }
 
+.nav-center {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  margin-right: 200px;
+}
+
+.nav-links li {
+  margin: 0 1rem; /* 1.5rem à gauche et droite de chaque élément */
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-coach-cart {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.nav-coach-cart .login-btn-coach{  background-color: #000000;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+margin-right: 20px;
+margin-left: 70px;
+}
+
+.nav-icon {
+  color: #333;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-icon:hover {
+  color: #007BFF;
+}
+
+.nav-buttons{
+  background-color: #000000;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+.login-btn, .login-btn-coach {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.login-btn{margin-right: 20px;margin-left: 20px;}
+
+.navbar .logosignup2 {
+  width: 150px;
+  height: 50px;
+}
 
 
 /* Hero Section */
@@ -253,7 +265,7 @@ button:hover {
   font-size: 18px;
 }
 
-.news-page-footer {
+.page-footer {
   background-color: #222;
   color: white;
   padding: 50px 0 20px;
@@ -261,7 +273,7 @@ button:hover {
   margin: 0; /* Supprime les marges par défaut */
 }
 
-.news-footer-container {
+.footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
@@ -270,18 +282,18 @@ button:hover {
   padding: 0 20px;
 }
 
-.news-footer-section {
+.footer-section {
   margin-bottom: 30px;
 }
 
-.news-footer-section h4 {
+.footer-section h4 {
   font-size: 1.2rem;
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 10px;
 }
 
-.news-footer-section h4::after {
+.footer-section h4::after {
   content: '';
   position: absolute;
   left: 0;
@@ -291,36 +303,36 @@ button:hover {
   background: var(--primary-color);
 }
 
-.news-footer-section p {
+.footer-section p {
   color: var(--gray);
   line-height: 1.6;
 }
 
-.news-footer-links {
+.footer-links {
   list-style: none;
   padding: 0;
 }
 
-.news-footer-links li {
+.footer-links li {
   margin-bottom: 10px;
 }
 
-.news-footer-links a {
+.footer-links a {
   color: var(--gray);
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.news-footer-links a:hover {
+.footer-links a:hover {
   color: white;
 }
 
-.news-social-links {
+.social-links {
   display: flex;
   gap: 15px;
 }
 
-.news-social-links a {
+.social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -332,11 +344,11 @@ button:hover {
   transition: background 0.3s;
 }
 
-.news-social-links a:hover {
+.social-links a:hover {
   background: var(--primary-color);
 }
 
-.news-footer-bottom {
+.footer-bottom {
   text-align: center;
   padding-top: 20px;
   margin-top: 30px;

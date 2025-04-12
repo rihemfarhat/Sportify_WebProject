@@ -5,6 +5,8 @@ import image1 from "../assets/images/image1.jpg";
 import image2 from "../assets/images/image2.jpg";
 import image3 from "../assets/images/image3.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const testimonials = [
@@ -69,28 +71,35 @@ export default function HomePage() {
   };
 
   return (
-    <div className="home-container">
-      <nav className="navbar">
-  <Link to="/" className="logo-link">
-    <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
-  </Link>
+<div className="home-container">
+  <nav className="navbar">
+    <Link to="/" className="logo-link">
+      <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
+    </Link>
 
-  <ul className="nav-links">
-    <li><Link to="/TrainingPage" >Training</Link></li>
-    <li><Link to="/Nutrition">Nutrition</Link></li>
-    <li><Link to="/news">Blog</Link></li>
-    <li><Link to="/ProductList">Shop</Link></li> 
+    <div className="nav-center">
+      <ul className="nav-links">
+        <li><Link to="/TrainingPage">Training</Link></li>
+        <li><Link to="/Nutrition">Nutrition</Link></li>
+        <li><Link to="/news">Blog</Link></li>
+        <li><Link to="/ProductList">Shop</Link></li>
+      </ul>
+    </div>
 
-  </ul>
+    <div className="nav-right">
+      <div className="nav-coach-cart">
+        <Link to="/CartPage" className="nav-icon">
+          <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+        </Link>
+        <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
+      </div>
 
-  <div className="nav-buttons-coach">
-    <Link to="/login_coach" className="login-btn-coach">Be a coach</Link>
-  </div>
+      <div className="nav-buttons">
+        <Link to="/login" className="login-btn">Start Now</Link>
+      </div>
+    </div>
+  </nav>
 
-  <div className="nav-buttons">
-    <Link to="/login" className="login-btn">Start Now</Link>
-  </div>
-</nav>
       {/* Hero Section with Video */}
       <header className="hero-section">
         <video autoPlay loop muted playsInline className="hero-video">
@@ -158,16 +167,16 @@ export default function HomePage() {
         ))}
       </div>
     </section>
-   <footer className="news-page-footer">
-           <div className="news-footer-container">
-             <div className="news-footer-section">
+   <footer className="page-footer">
+           <div className="footer-container">
+             <div className="footer-section">
                <h4>About Us</h4>
                <p>Your journey to fitness starts here with our expert guidance and community support.</p>
              </div>
              
-             <div className="news-footer-section">
+             <div className="footer-section">
             <h4>Quick Links</h4>
-             <ul className="news-footer-links">
+             <ul className="footer-links">
                  <li><Link to="/">Home</Link></li>
                  <li><Link to="/nutrition">Nutrition</Link></li>
                 <li><Link to="/news">Blog</Link></li>
@@ -175,9 +184,9 @@ export default function HomePage() {
              </ul>
             </div>
              
-             <div className="news-footer-section">
+             <div className="footer-section">
                <h4>Connect With Us</h4>
-               <div className="news-social-links">
+               <div className="social-links">
                  <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
                  <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
                  <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
