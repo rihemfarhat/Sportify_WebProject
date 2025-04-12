@@ -101,6 +101,7 @@ const ProductDetail = () => {
                                 <Link to="/login" className="login-btn2">Start Now</Link>
                             </div>
                         </nav>
+            
             <div className="product-badges">
                 <span className="badge new">NOUVEAU</span>
                 {Math.random() > 0.5 && <span className="badge eco"><FontAwesomeIcon icon={faLeaf} /> ECO</span>}

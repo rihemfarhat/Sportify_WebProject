@@ -1,9 +1,8 @@
 /* CartPage.css - Creative Version */
 
 .creative-cart {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+    max-width: 100%;
+
     font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
     color: #2d3436;
     animation: fadeIn 0.6s ease-out;
@@ -21,6 +20,8 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    
+    
 }
 
 .cart-header h1 {
@@ -36,6 +37,8 @@
     font-size: 2rem;
     color: #0984e3;
     animation: bounce 2s infinite;
+    margin-top: 150px;
+
 }
 
 @keyframes bounce {
@@ -74,6 +77,7 @@
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
+.cart-title{ margin-top: 150px}
 
 .empty-cart-creative h2 {
     font-size: 1.8rem;
@@ -108,12 +112,15 @@
     display: grid;
     grid-template-columns: 1fr 350px;
     gap: 2rem;
+    margin-top: 100px;
+
 }
 
 .cart-items-section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    
 }
 
 .cart-item-creative {
