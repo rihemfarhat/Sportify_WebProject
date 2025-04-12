@@ -22,6 +22,7 @@ import AccessoriesPage from './pages/AccessoriesPage';
 import CoachProfile from './pages/coach_form';
 import ProductDetail from './pages/ProductDetail';
 import TrainingPage from './pages/Trainingpage';
+import CartPage from './pages/CartPage';
 import './App.css';
 
 
@@ -40,6 +41,8 @@ function App() {
         <Route path="/login_coach" element={<Login_coach />} />
         <Route path="/sign_up_coach" element={<Signup_coach />} />
         <Route path="/coach_form" element={<CoachProfile />} />
+        <Route path="/CartPage" element={<CartPage />} />
+
 
 
         <Route path="/subscription" element={<Subscription />} />

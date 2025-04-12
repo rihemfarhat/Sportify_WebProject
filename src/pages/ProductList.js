@@ -80,7 +80,7 @@ const ProductList = () => {
                 </form>
 
                 <div className="nav-icons2">
-                    <Link to="/cart" className="nav-icon2">
+                    <Link to="/CartPage" className="nav-icon2">
                         <FontAwesomeIcon icon={faShoppingCart} size="lg" />
                     </Link>
                 </div>

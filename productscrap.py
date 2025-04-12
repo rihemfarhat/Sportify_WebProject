@@ -9,74 +9,75 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 
 # 📌 Connexion à MongoDB
-client = MongoClient("mongodb://localhost:27017/")  # Connexion locale à MongoDB
-db = client["authDB"]  # Base de données
-collection = db["products"]  # Collection des produits
+client = MongoClient("mongodb://localhost:27017/")
+db = client["authDB"]
+collection = db["products"]
 
-# 📌 Configuration de Selenium
+# 📌 Configuration Selenium
 options = webdriver.ChromeOptions()
-options.headless = True  # Mode sans interface graphique
+options.headless = True  # Exécute Chrome sans interface
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-# 📌 URLs des différentes catégories de produits
+# 📌 URLs à scraper
 urls = [
-    "https://www.tuttosport.com.tn/179-materiel-sport",  # Matériel sportif
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=1",  # Accessoires page 1
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=2",  # Accessoires page 2
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=3",  # Accessoires page 3
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=4",  # Accessoires page 4
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=5",  # Accessoires page 5
-    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=6",  # Accessoires page 6
-    "https://www.antasports.tn/11-chaussures"  # Chaussures
+    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=1",
+    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=2",
+    "https://www.tuttosport.com.tn/16-accessoire-de-sport?page=3",
+    "https://www.tuttosport.com.tn/28-chaussure-sport"
 ]
 
-# 📌 Fonction de scraping pour chaque URL
-def scrape_products(url):
+# 📌 Scraping
+for url in urls:
+    print(f"🚀 Scraping {url}")
     driver.get(url)
     
     try:
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(driver, 20).until(
             EC.presence_of_all_elements_located((By.CLASS_NAME, "product-miniature"))
         )
     except TimeoutException:
-        print(f"❌ Timeout: Page load failed for {url}.")
-        return
+        print(f"❌ Timeout: Impossible de charger la page {url}")
+        continue
 
     products = driver.find_elements(By.CLASS_NAME, "product-miniature")
 
-    for product in products:
+    for item in products:
         try:
-            title = product.find_element(By.CLASS_NAME, "product-title").text.strip()
-            price = product.find_element(By.CLASS_NAME, "price").text.strip()
-            link_element = product.find_element(By.TAG_NAME, "a")
-            product_link = link_element.get_attribute("href")
-            img_tag = product.find_element(By.TAG_NAME, "img")
-            img_url = img_tag.get_attribute("src") if img_tag else "No image available"
-            
-            # Store data
+            # Titre et lien
+            title_elem = item.find_element(By.CSS_SELECTOR, "h3.product-title a")
+            title = title_elem.text.strip()
+            item_link = title_elem.get_attribute("href")
+
+            # Prix
+            price_elem = item.find_element(By.CSS_SELECTOR, ".product-price-and-shipping .price")
+            price = price_elem.text.strip()
+
+            # Image
+            try:
+                img_tag = item.find_element(By.TAG_NAME, "img")
+                img_url = img_tag.get_attribute("src")
+            except NoSuchElementException:
+                img_url = "No image available"
+
+            # Données à stocker
             product_data = {
                 "title": title,
                 "price": price,
-                "link": product_link,
+                "link": item_link,
                 "image": img_url,
                 "page_url": url
             }
 
-            # Insert data into MongoDB if not already present
-            if collection.find_one({"link": product_link}):
-                print(f"✅ Product already exists: {title}")
+            # Insertion MongoDB
+            if collection.find_one({"link": item_link}):
+                print(f"✅ Déjà existant : {title}")
             else:
                 collection.insert_one(product_data)
-                print(f"✅ Product added: {title}")
+                print(f"🆕 Ajouté : {title}")
 
-        except (NoSuchElementException, TimeoutException) as e:
-            print(f"❌ Error scraping product from {url}: {e}")
+        except Exception as e:
+            print(f"❌ Erreur avec un produit sur {url} : {e}")
 
-# 📌 Scraping des différentes URLs
-for url in urls:
-    scrape_products(url)
-
-# Fermer le navigateur
+# 📌 Fin
 driver.quit()
-
-print("🎉 Scraping complete! Products have been added to MongoDB.")
+print("🎉 Scraping terminé et enregistré dans MongoDB.")
