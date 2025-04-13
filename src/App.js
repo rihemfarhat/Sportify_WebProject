@@ -17,14 +17,18 @@ import ProductList from './pages/ProductList';
 import ProductList2 from './pages/PostLoginUser/ProductList_postloguser';
 import EquipmentPage from './pages/EquipmentPage';
 import MenPage from './pages/MenPage';
-import WomenPage from './pages/WomenPage';
 import AccessoriesPage from './pages/AccessoriesPage';
 import CoachProfile from './pages/coach_form';
 import ProductDetail from './pages/ProductDetail';
 import TrainingPage from './pages/Trainingpage';
 import TrainingPage2 from './pages/PostLoginUser/Trainingpage_postloguser';
-
+import CoachInterface from './pages/CoachInterface';
 import CartPage from './pages/CartPage';
+import PaymentPage from './pages/PaymentPage';
+import OrderConfirmation from './pages/OrderConfirmation';
+import WomenPage from "./pages/WomenPage";
+
+
 import './App.css';
 
 
@@ -44,6 +48,12 @@ function App() {
         <Route path="/sign_up_coach" element={<Signup_coach />} />
         <Route path="/coach_form" element={<CoachProfile />} />
         <Route path="/CartPage" element={<CartPage />} />
+        <Route path="/CoachInterface" element={<CoachInterface />} />
+        <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
+        <Route path="/WomenPage" element={<WomenPage />} />
+
+
+
 
 
 
@@ -61,10 +71,10 @@ function App() {
 
         <Route path="/equipment" element={<EquipmentPage />} />
         <Route path="/men" element={<MenPage />} />
-        <Route path="/women" element={<WomenPage />} />
         <Route path="/accessories" element={<AccessoriesPage />} />
         <Route path="/TrainingPage" element={<TrainingPage />} />
         <Route path="/Trainingpage_postloguser" element={<TrainingPage2 />} />
+        <Route path="/PaymentPage" element={<PaymentPage />} />
 
 
 

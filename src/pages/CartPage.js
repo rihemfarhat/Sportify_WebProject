@@ -145,7 +145,17 @@ const CartPage = () => {
                                 <span>{total.toFixed(2)} TND</span>
                             </div>
                         </div>
-                        <button className="checkout-button">PROCEED TO CHECKOUT</button>
+                        <button 
+    className="checkout-button"
+    onClick={() => navigate('/PaymentPage', { 
+        state: { 
+            total: total,
+            cartItems: cart // Optionnel : passer aussi les articles si besoin
+        } 
+    })}
+>
+    PROCEED TO CHECKOUT
+</button>
                         <p className="secure-checkout">
                             <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="#4CAF50"/><path d="M16 10H8V8H16V10Z" fill="white"/><path d="M16 14H8V12H16V14Z" fill="white"/></svg>
                             Secure Payment

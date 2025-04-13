@@ -106,7 +106,7 @@ const ProductList = () => {
                     <p><strong>Men</strong></p>
                 </Link>
                 
-                <Link to="/women" className="category-card">
+                <Link to="/WomenPage" className="category-card">
                     <img src={require("../assets/images/women.jpg")} alt="Women" />
                     <p><strong>Women</strong></p>
                 </Link>

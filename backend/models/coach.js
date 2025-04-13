@@ -18,7 +18,12 @@ const coachSchema = new mongoose.Schema({
   },
   dob: { type: Date, required: true },
   gender: { type: String, enum: ['male', 'female', 'other'] },
+  exercises: [{  // <-- Correction ici : ajouté dans le schéma principal
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Exercise'
+  }],
   createdAt: { type: Date, default: Date.now }
+  
 });
 
 // Hash du mot de passe avant sauvegarde
