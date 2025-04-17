@@ -1,12 +1,10 @@
-// routes/accessoireRoutes.js
 const express = require('express');
 const router = express.Router();
-const accessoireController = require('../controllers/accessoireController');
 
-// Get all accessories
-router.get('/accessoires', accessoireController.getAllAccessoires);
+const { getAllAccessoires, addAccessoire, getAccessoireById } = require('../controllers/accessoireController');
 
-// Add a new accessory
-router.post('/accessoires', accessoireController.addAccessoire);
+router.get('/', getAllAccessoires);         // http://localhost:5000/api/accessoires
+router.post('/', addAccessoire);            // http://localhost:5000/api/accessoires
+router.get('/:id', getAccessoireById);      // http://localhost:5000/api/accessoires/:id
 
 module.exports = router;

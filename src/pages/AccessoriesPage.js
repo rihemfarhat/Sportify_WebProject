@@ -106,9 +106,9 @@ const AccessoryList = () => {
                                     <img src={item.image} alt={item.title} />
                                     <h3>{item.title}</h3>
                                     <p>{item.price}</p>
-                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                        View Accessory
-                                    </a>
+                                    <Link to={`/accessoires/${item._id}`} className="view-product-link">
+                                        View Product
+                                    </Link>
                                 </div>
                             ))
                         ) : (

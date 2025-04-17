@@ -1,0 +1,297 @@
+/* CoachInterface.css */
+
+.coach-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    color: #ffffff;
+    
+  }
+  
+  
+  
+ .navbarcoach-logo{    color: #ffffff;
+ }
+  .coach-content {
+    display: flex;
+    gap: 30px;
+    
+  }
+  
+  .exercise-form {
+    flex: 1;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+
+  }
+  
+  .exercise-form h2 {
+    margin-top: 0;
+    color: #ff4208;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  .form-group input[type="text"],
+  .form-group textarea,
+  .form-group select,
+  .form-group input[type="datetime-local"],
+  .form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  
+  .checkbox-label input {
+    width: auto;
+  }
+  
+  .submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .exercises-list {
+    margin-top: 100px;
+
+    flex: 2;
+  }
+  
+  .exercises-list h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+  }
+  
+  .no-exercises {
+    text-align: center;
+    padding: 40px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    color: #7f8c8d;
+  }
+  
+  .exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .exercise-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .exercise-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .exercise-header h3 {
+    margin: 0;
+    color: #2c3e50;
+  }
+  
+  .difficulty {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .difficulty.beginner {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .difficulty.intermediate {
+    background-color: #f39c12;
+    color: white;
+  }
+  
+  .difficulty.advanced {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .category {
+    margin: 0 0 10px 0;
+    color: #7f8c8d;
+    font-size: 0.9em;
+  }
+  
+  .description {
+    margin: 10px 0;
+    color: #34495e;
+    flex-grow: 1;
+  }
+  
+  .live-info {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+  }
+  
+  .live-badge {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-right: 10px;
+  }
+  
+  .video-preview {
+    margin: 15px 0;
+  }
+  
+  .video-preview video {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  @media (max-width: 768px) {
+    .coach-content {
+      flex-direction: column;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  /* Navbar */
+.navbarcoach {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+}
+
+.navbar-left h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 15px;
+}
+
+.notification-btn,
+.logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.notification-btn:hover,
+.logout-btn:hover {
+  opacity: 0.7;
+}
+
+/* Style supplémentaire pour les icônes de notification et de déconnexion */
+.notification-btn {
+  position: relative;
+}
+
+.notification-btn::after {
+  content: '3'; /* Par exemple, le nombre de notifications */
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.logout-btn {
+  color: red;
+}
+
+.logout-btn:hover {
+  color: darkred;
+}

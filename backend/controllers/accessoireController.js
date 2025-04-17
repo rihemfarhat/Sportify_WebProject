@@ -28,3 +28,17 @@ exports.addAccessoire = async (req, res) => {
         res.status(500).json({ message: 'Error adding accessoire', error: err });
     }
 };
+
+// Get accessory by ID
+exports.getAccessoireById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const accessoire = await Accessoire.findById(id);
+        if (!accessoire) {
+            return res.status(404).json({ message: 'Accessoire not found' });
+        }
+        res.status(200).json(accessoire);
+    } catch (err) {
+        res.status(500).json({ message: 'Error fetching accessoire', error: err });
+    }
+};

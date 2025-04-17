@@ -10,3 +10,4 @@ const accessoireSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Accessoire', accessoireSchema);
+

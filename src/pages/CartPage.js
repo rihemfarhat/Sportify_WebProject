@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../style/CartPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faShoppingBag, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faTrash, faShoppingBag, faShoppingCart, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
+import { faFacebook, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+
+import '../style/CartPage.css';
 
 const CartPage = () => {
     const [cart, setCart] = useState([]);
@@ -35,10 +36,6 @@ const CartPage = () => {
         }
     }, [allProducts, cart]);
 
-    const handleAddRecommendedToCart = (product) => {
-        navigate(`/product/${product._id}`); // Redirect to product detail page
-    };
-
     const handleRemove = (indexToRemove) => {
         const updatedCart = cart.filter((_, index) => index !== indexToRemove);
         setCart(updatedCart);
@@ -51,13 +48,13 @@ const CartPage = () => {
             : item.price;
         return sum + (price * (item.quantity || 1));
     }, 0);
-    
+
     const deliveryFee = 8.00;
     const total = subtotal + deliveryFee;
 
     return (
         <div className="creative-cart">
-            {/* Same Navbar */}
+            {/* Navbar */}
             <nav className="navbar">
                 <Link to="/" className="logo-link">
                     <img src={require('../assets/images/logo.png')} alt="logo" className="logosignup2" />
@@ -83,20 +80,25 @@ const CartPage = () => {
                 </div>
             </nav>
 
+            {/* Cart Header */}
             <div className="cart-header">
                 <FontAwesomeIcon icon={faShoppingBag} className="cart-icon" />
                 <h1 className="cart-title">My Cart <span className="cart-count">{cart.length} item{cart.length !== 1 ? 's' : ''}</span></h1>
             </div>
 
+            {/* Cart Content */}
             {cart.length === 0 ? (
                 <div className="empty-cart-creative">
                     <FontAwesomeIcon icon={faShoppingBag} className="empty-cart-icon" />
                     <h2>Your cart is empty</h2>
                     <p>Browse our collection and find items you like</p>
-                    <button className="browse-btn">Discover Our Products</button>
+                    <button className="browse-btn" onClick={() => navigate('/ProductList')}>
+                        Discover Our Products
+                    </button>
                 </div>
             ) : (
                 <div className="cart-content-creative">
+                    {/* Cart Items */}
                     <div className="cart-items-section">
                         {cart.map((item, index) => (
                             <div key={index} className="cart-item-creative">
@@ -106,12 +108,11 @@ const CartPage = () => {
                                 <div className="product-details">
                                     <h3 className="product-title">{item.title}</h3>
                                     <p className="product-size">Size: {item.selectedSize || 'Not specified'}</p>
-                                    <p className="product-price">
-                                    {typeof item.price === 'string' 
-                                        ? parseFloat(item.price.replace(',', '.')).toFixed(2) 
-                                        : item.price.toFixed(2)
-                                    } TND
-                                    </p>
+                                    <p>{
+                                        typeof item.price === 'string' 
+                                            ? parseFloat(item.price.replace(',', '.')).toFixed(2) 
+                                            : item.price.toFixed(2)
+                                    } TND</p>
                                     <div className="product-actions">
                                         <button onClick={() => handleRemove(index)} className="remove-button">
                                             <FontAwesomeIcon icon={faTrash} className="trash-icon" /> Remove
@@ -125,6 +126,7 @@ const CartPage = () => {
                         ))}
                     </div>
 
+                    {/* Order Summary */}
                     <div className="cart-summary">
                         <h3>Order Summary</h3>
                         <div className="summary-table">
@@ -133,9 +135,16 @@ const CartPage = () => {
                                 <span>{subtotal.toFixed(2)} TND</span>
                             </div>
                             <div className="summary-row">
-                                <span>Delivery</span>
-                                <span>{deliveryFee.toFixed(2)} TND</span>
-                            </div>
+                            <span>Items</span>
+                            <span>{
+                                cart.reduce((sum, item) => {
+                                    const price = typeof item.price === 'string' 
+                                        ? parseFloat(item.price.replace(',', '.')) 
+                                        : item.price;
+                                    return sum + (price * (item.quantity || 1));
+                                }, 0).toFixed(2)
+                            } TND</span>
+                        </div>
                             <div className="summary-row discount-row">
                                 <span>Promo Code</span>
                                 <span className="apply-discount">Apply</span>
@@ -145,13 +154,15 @@ const CartPage = () => {
                                 <span>{total.toFixed(2)} TND</span>
                             </div>
                         </div>
-                        <button className="checkout-button">PROCEED TO CHECKOUT</button>
+                        <button className="checkout-button" onClick={() => navigate('/PaymentPage', { state: { total, cartItems: cart } })}>
+                            PROCEED TO CHECKOUT
+                        </button>
                         <p className="secure-checkout">
-                            <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" fill="#4CAF50"/><path d="M16 10H8V8H16V10Z" fill="white"/><path d="M16 14H8V12H16V14Z" fill="white"/></svg>
                             Secure Payment
                         </p>
                     </div>
 
+                    {/* Recommendations Section */}
                     {recommendedProducts.length > 0 && (
                         <div className="recommendations-section">
                             <div className="divider">
@@ -162,16 +173,8 @@ const CartPage = () => {
                                     <div key={product._id} className="recommended-product">
                                         <img src={product.image} alt={product.title} />
                                         <h4>{product.title}</h4>
-                                        <p>
-                                            {typeof product.price === 'string' 
-                                                ? parseFloat(product.price.replace(',', '.')).toFixed(2) 
-                                                : product.price.toFixed(2)
-                                            } TND
-                                        </p>
-                                        <button 
-                                            className="add-to-cart-btn"
-                                            onClick={() => handleAddRecommendedToCart(product)}
-                                        >
+                                        <p>{typeof product.price === 'string' ? parseFloat(product.price.replace(',', '.')).toFixed(2) : product.price.toFixed(2)} TND</p>
+                                        <button className="add-to-cart-btn" onClick={() => navigate(`/product/${product._id}`)}>
                                             Add to Cart
                                         </button>
                                     </div>
@@ -182,6 +185,7 @@ const CartPage = () => {
                 </div>
             )}
 
+            {/* Footer */}
             <footer className="news-page-footer">
                 <div className="news-footer-container">
                     <div className="news-footer-section">

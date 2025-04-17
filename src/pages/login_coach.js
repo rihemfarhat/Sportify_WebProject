@@ -24,7 +24,7 @@ function Login_coach() {
       localStorage.setItem('token', response.data.token); // Stocke le token
       localStorage.setItem('userId', response.data.coach._id); // Stocke l'ID utilisateur
     
-      navigate('/homepage_postloguser'); // Redirige vers la page du profil du coach
+      navigate('/CoachInterface'); // Redirige vers la page du profil du coach
     } catch (err) {
       console.error('Erreur lors de la connexion:', err.response ? err.response.data : err.message);
       setError('Échec de la connexion. Vérifiez vos informations et réessayez.');

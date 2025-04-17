@@ -116,7 +116,7 @@ export default function HomePage() {
       <section className="success-stories">
       <h2 className="title">Success Stories</h2>
       <p className="subtitle">
-        97% of users experience dramatic progress after 12 weeks with the Sportify AI Coach*.
+        97% of users experience dramatic progress after 12 weeks with the Sportify
       </p>
       <div className="testimonials">
         {testimonials.map((testimonial, index) => (
