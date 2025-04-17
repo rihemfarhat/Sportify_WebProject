@@ -1,0 +1,412 @@
+/* DietQuiz.css - Creative Version */
+
+.diet-quiz-page {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #2d3436;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    min-height: 100vh;
+  }
+  
+  .quiz-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .quiz-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+    z-index: 0;
+  }
+  
+  .quiz-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .quiz-title {
+    font-size: 2.8rem;
+    color: #2d3436;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .quiz-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    border-radius: 2px;
+  }
+  
+  .quiz-subtitle {
+    font-size: 1.2rem;
+    color: #636e72;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  
+  .quiz-question-container {
+    margin: 3rem 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .quiz-progress {
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    border-radius: 4px;
+    transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+  }
+  
+  .quiz-progress span {
+    display: block;
+    margin-top: 0.8rem;
+    color: #636e72;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  
+  .quiz-question {
+    font-size: 1.8rem;
+    color: #2d3436;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .quiz-question::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    border-radius: 3px;
+  }
+  
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .quiz-option {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    padding: 1.8rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-align: center;
+    font-weight: 500;
+    color: #2d3436;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .quiz-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .quiz-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    color: #ffffff;
+  }
+  
+  .quiz-option:hover::before {
+    opacity: 1;
+  }
+  
+  .quiz-option:active {
+    transform: translateY(-2px);
+  }
+  
+  .quiz-result-container {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .quiz-result-container h2 {
+    font-size: 1.8rem;
+    color: #636e72;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .result-title {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1.5rem 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .result-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #6c5ce7, #00cec9);
+  }
+  
+  .result-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+    box-shadow: 0 15px 30px rgba(108, 92, 231, 0.2);
+    border: 5px solid white;
+    outline: 2px solid #6c5ce7;
+  }
+  
+  .result-details {
+    max-width: 700px;
+    text-align: center;
+  }
+  
+  .result-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: #2d3436;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .result-description::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #6c5ce7, #00cec9);
+  }
+  
+  .result-benefits {
+    margin: 2rem 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+  
+  .result-benefits li {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #2d3436;
+    position: relative;
+    padding-left: 2rem;
+    text-align: left;
+  }
+  
+  .result-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00cec9;
+    font-weight: bold;
+  }
+  
+  .result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .restart-btn, .nutrition-link {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .restart-btn {
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+    color: white;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+  }
+  
+  .nutrition-link {
+    background: linear-gradient(90deg, #00cec9, #55efc4);
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 206, 201, 0.3);
+  }
+  
+  .restart-btn::before, .nutrition-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .restart-btn:hover, .nutrition-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .restart-btn:hover::before, .nutrition-link:hover::before {
+    opacity: 1;
+  }
+  
+  .restart-btn:active, .nutrition-link:active {
+    transform: translateY(1px);
+  }
+  
+  /* Floating animation for visual interest */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .quiz-container {
+      padding: 2rem 1.5rem;
+    }
+    
+    .quiz-title {
+      font-size: 2rem;
+    }
+    
+    .quiz-subtitle {
+      font-size: 1rem;
+    }
+    
+    .quiz-options {
+      grid-template-columns: 1fr;
+      background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+
+      
+    }
+    
+    .quiz-question {
+      font-size: 1.5rem;
+    }
+    
+    .result-title {
+      font-size: 2.2rem;
+    }
+    
+    .result-content {
+      padding: 2rem 1.5rem;
+    }
+    
+    .restart-btn, .nutrition-link {
+      width: 100%;
+    }
+  }
+  
+  /* Confetti effect for results */
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+    border-radius: 50%;
+    animation: confetti-fall 5s linear infinite;
+  }
+  
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }

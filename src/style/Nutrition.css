@@ -260,6 +260,83 @@ html {
 }
 
 
+/* Nutrient Details Sections */
+.nutrient-details-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+  margin-top: 40px;
+}
+
+.nutrient-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nutrient-details-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.nutrient-details-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nutrient-details-text {
+  flex: 1;
+}
+
+.nutrient-details-text h3 {
+  font-size: 1.5rem;
+  margin: 25px 0 15px;
+  color: #444;
+}
+
+.nutrient-details-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.nutrient-details-text ul {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.nutrient-details-text li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.nutrient-details-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.nutrient-details-image img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nutrient-details-content {
+    flex-direction: column;
+  }
+  
+  .nutrient-details-title {
+    font-size: 2rem;
+  }
+}
+
 
   
 

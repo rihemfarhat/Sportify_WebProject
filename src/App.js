@@ -30,6 +30,11 @@ import CartPage from './pages/CartPage';
 import PaymentPage from './pages/PaymentPage';
 import OrderConfirmation from './pages/OrderConfirmation';
 import WomenPage from "./pages/WomenPage";
+import DietQuiz from "./pages/DietQuiz";
+import DietPage from "./pages/DietPage";
+
+
+
 
 import './App.css';
 
@@ -67,6 +72,11 @@ function App() {
         <Route path="/TrainingPage" element={<TrainingPage />} />
         <Route path="/Trainingpage_postloguser" element={<TrainingPage2 />} />
         <Route path="/PaymentPage" element={<PaymentPage />} />
+        <Route path="/DietQuiz" element={<DietQuiz />} />
+        <Route path="/diet" element={<DietPage />} />
+
+        
+
       </Routes>
     </div>
   );
