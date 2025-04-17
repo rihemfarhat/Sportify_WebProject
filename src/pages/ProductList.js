@@ -95,7 +95,9 @@ const ProductList = () => {
             </nav>
 
             {/* Section Catégories */}
+            <h2 className="section-title-categories">All categories</h2>
             <section className="categories-section">
+           
                 <Link to="/equipment" className="category-card">
                     <img src={require("../assets/images/equipment.jpg")} alt="Equipment" />
                     <p><strong>Equipment</strong></p>
