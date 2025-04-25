@@ -32,6 +32,7 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import WomenPage from "./pages/WomenPage";
 import DietQuiz from "./pages/DietQuiz";
 import DietPage from "./pages/DietPage";
+import HealthyRecipes from './pages/HealthyRecipes';
 
 
 
@@ -74,6 +75,9 @@ function App() {
         <Route path="/PaymentPage" element={<PaymentPage />} />
         <Route path="/DietQuiz" element={<DietQuiz />} />
         <Route path="/diet" element={<DietPage />} />
+        <Route path="/HealthyRecipes" element={<HealthyRecipes />} />
+
+        
 
         
 

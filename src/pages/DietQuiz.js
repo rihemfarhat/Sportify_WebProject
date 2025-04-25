@@ -245,7 +245,7 @@ const DietQuiz = () => {
                   <button className="restart-btn" onClick={restartQuiz}>
                     Retake Quiz
                   </button>
-                  <Link to="/Nutrition" className="nutrition-link">
+                  <Link to="/HealthyRecipes" className="nutrition-link">
                     Learn More About Nutrition
                   </Link>
                 </div>

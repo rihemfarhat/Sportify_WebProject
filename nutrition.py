@@ -1,43 +1,52 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
+import pandas as pd
 import time
-import requests
 
-# Lancer le navigateur
-driver = webdriver.Chrome()
+# Setup Selenium (headless)
+options = Options()
+options.add_argument('--headless')
+driver = webdriver.Chrome(options=options)
 
-# Ouvre la page principale des articles de nutrition
-url = "https://my.toneitup.com/pages/nutrition"
+# URL to scrape
+url = "https://www.allrecipes.com/recipes/84/healthy-recipes/"
 driver.get(url)
 
-# Attendre le chargement complet
-time.sleep(5)
+# Scroll down to load more content (optional)
+scroll_pause = 2
+last_height = driver.execute_script("return document.body.scrollHeight")
 
-# Récupérer le HTML
+for _ in range(3):  # Scroll multiple times if needed
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(scroll_pause)
+    new_height = driver.execute_script("return document.body.scrollHeight")
+    if new_height == last_height:
+        break
+    last_height = new_height
+
+# Parse page
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 
-# Fermer le navigateur
+# Close the driver
 driver.quit()
 
-# Exemple : trouver tous les liens vers les articles
-article_links = []
-for a in soup.find_all('a', href=True):
-    if '/blogs/nutrition/' in a['href']:
-        full_link = "https://my.toneitup.com" + a['href']
-        if full_link not in article_links:
-            article_links.append(full_link)
+# Find recipe cards
+recipes = soup.select('article.fixed-recipe-card')  # fallback if needed
+if not recipes:
+    recipes = soup.select('a.comp.card__titleLink')  # new layout
 
-# Récupérer le contenu de chaque article
-for link in article_links:
-    res = requests.get(link)
-    article_soup = BeautifulSoup(res.text, 'html.parser')
-    
-    title = article_soup.find('h1')
-    content = article_soup.find('div', class_='article__content')  # Peut varier selon leur structure HTML
-    
-    print("Title:", title.get_text(strip=True) if title else "No title")
-    print("Link:", link)
-    print("Content snippet:", content.get_text(strip=True)[:300] if content else "No content")
-    print("-" * 80)
+# Extract data
+recipe_list = []
+for recipe in recipes:
+    title_tag = recipe.select_one('h3.card__title') or recipe.select_one('span.card__title') or recipe.select_one('.card__titleLink')
+    link_tag = recipe.get('href') if recipe.name == 'a' else recipe.find('a', href=True)
 
+    title = title_tag.get_text(strip=True) if title_tag else "No title"
+    link = link_tag if isinstance(link_tag, str) else link_tag['href'] if link_tag else "No link"
+
+    recipe_list.append({'title': title, 'link': link})
+
+# Convert to DataFrame
+df = pd.DataFrame(recipe_list)
+print(df.head())
