@@ -1,0 +1,423 @@
+/* Nutritionist.css */
+
+/* Base Styles */
+.nutritionist-page {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Hero Section */
+  .nutritionist-hero {
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+    padding: 80px 20px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nutritionist-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1) 0),
+      linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1) 0);
+    background-size: 20px 20px;
+    opacity: 0.2;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Search Container */
+  .search-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 13, 255, 0.1);
+    padding: 30px;
+    margin-bottom: 40px;
+    transform: translateY(-20px);
+    position: relative;
+    z-index: 10;
+  }
+  
+  .search-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: end;
+  }
+  
+  .form-group {
+    margin-bottom: 0;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #6B73FF;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(107, 115, 255, 0.2);
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 15px;
+    align-self: end;
+  }
+  
+  .search-btn, .reset-btn {
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+  }
+  
+  .search-btn {
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+  }
+  
+  .search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(107, 115, 255, 0.4);
+  }
+  
+  .reset-btn {
+    background: white;
+    color: #6B73FF;
+    border: 2px solid #6B73FF;
+  }
+  
+  .reset-btn:hover {
+    background: #f8f8ff;
+  }
+  
+  /* Results Container */
+  .results-container {
+    margin-bottom: 60px;
+  }
+  
+  .results-title {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #222;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .results-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    border-radius: 2px;
+  }
+  
+  /* Nutritionist Grid */
+  .nutritionist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .nutritionist-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .nutritionist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(107, 115, 255, 0.15);
+  }
+  
+  .card-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .nutritionist-card:hover .card-image img {
+    transform: scale(1.05);
+  }
+  
+  .card-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-content h3 {
+    margin: 0 0 5px;
+    font-size: 1.4rem;
+    color: #222;
+  }
+  
+  .specialty {
+    color: #6B73FF;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  
+  .location {
+    color: #777;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .location::before {
+    content: '📍';
+    margin-right: 5px;
+  }
+  
+  .rating {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars {
+    color: #FFC107;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-right: 10px;
+  }
+  
+  .rating-text {
+    color: #777;
+    font-size: 0.9rem;
+  }
+  
+  .availability {
+    background: #f0f7ff;
+    color: #0066cc;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 5px 0;
+  }
+  
+  .languages {
+    color: #555;
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+  
+  .bio {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 15px 0;
+    flex-grow: 1;
+  }
+  
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .view-profile, .book-now {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+  
+  .view-profile {
+    background: white;
+    color: #6B73FF;
+    border: 2px solid #6B73FF;
+  }
+  
+  .view-profile:hover {
+    background: #f8f8ff;
+  }
+  
+  .book-now {
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+    border: none;
+  }
+  
+  .book-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(107, 115, 255, 0.3);
+  }
+  
+  /* Loading and Error States */
+  .loading-spinner {
+    text-align: center;
+    padding: 50px 0;
+  }
+  
+  .spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #6B73FF;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .no-results {
+    text-align: center;
+    padding: 40px 0;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .no-results p {
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .no-results button {
+    padding: 10px 25px;
+    background: #6B73FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .no-results button:hover {
+    background: #000DFF;
+  }
+  
+  .nutritionist-error {
+    text-align: center;
+    padding: 50px 20px;
+    color: #d32f2f;
+  }
+  
+  .nutritionist-error h2 {
+    margin-bottom: 20px;
+  }
+  
+  .nutritionist-error button {
+    padding: 10px 25px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .back-home {
+    display: inline-block;
+    margin-top: 20px;
+    color: #6B73FF;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.2rem;
+    }
+    
+    .search-form {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+      justify-content: center;
+    }
+    
+    .nutritionist-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animation for cards */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .nutritionist-card {
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+  }
+  
+  .nutritionist-card:nth-child(1) { animation-delay: 0.1s; }
+  .nutritionist-card:nth-child(2) { animation-delay: 0.2s; }
+  .nutritionist-card:nth-child(3) { animation-delay: 0.3s; }
+  .nutritionist-card:nth-child(4) { animation-delay: 0.4s; }
+  .nutritionist-card:nth-child(5) { animation-delay: 0.5s; }
+  .nutritionist-card:nth-child(6) { animation-delay: 0.6s; }

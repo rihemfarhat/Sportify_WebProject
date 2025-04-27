@@ -14,6 +14,7 @@ const listEndpoints = require('express-list-endpoints');
 const exerciseRoutes = require('./routes/exercise');
 const womenRoutes = require('./routes/womenRoutes');
 const menRoutes = require("./routes/menRoutes");
+const workoutRoutes = require('./routes/workoutRoutes');
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,9 +22,9 @@ const PORT = process.env.PORT || 5000;
 // Middleware de CORS et JSON
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/exercises', exerciseRoutes);
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Connexion à MongoDB pour l'authentification (authDB)
 mongoose.connect(process.env.MONGO_URI_AUTH || "mongodb://localhost:27017/authDB", {
@@ -58,6 +59,7 @@ app.use('/api/accessoires', accessoireRoutes);
 
 app.use('/api/women', womenRoutes);
 app.use("/api/men", menRoutes);
+app.use('/api/workouts', workoutRoutes);
 
 
 console.log("📌 Liste des routes enregistrées :", listEndpoints(app));

@@ -62,6 +62,7 @@ const DietQuiz = () => {
 
   const dietResults = {
     mediterranean: {
+      id: 'mediterranean',
       title: "Mediterranean Diet",
       description: "Focuses on fruits, vegetables, whole grains, olive oil, and moderate amounts of fish and poultry. Great for heart health and longevity.",
       benefits: [
@@ -71,6 +72,7 @@ const DietQuiz = () => {
       ]
     },
     keto: {
+      id: 'keto',
       title: "Keto Diet",
       description: "High-fat, very low-carb diet that puts your body into ketosis. Effective for quick weight loss and mental clarity.",
       benefits: [
@@ -80,6 +82,7 @@ const DietQuiz = () => {
       ]
     },
     plantBased: {
+      id: 'plant-based',
       title: "Plant-Based Diet",
       description: "Emphasizes whole, minimally processed plants. Excellent for digestion, energy, and ethical eating.",
       benefits: [
@@ -89,6 +92,7 @@ const DietQuiz = () => {
       ]
     },
     paleo: {
+      id: 'paleo',
       title: "Paleo Diet",
       description: "Based on foods presumed to be available to Paleolithic humans. Good for those who prefer natural, unprocessed foods.",
       benefits: [
@@ -98,6 +102,7 @@ const DietQuiz = () => {
       ]
     },
     flexitarian: {
+      id: 'flexitarian',
       title: "Flexitarian Diet",
       description: "Mostly vegetarian with occasional meat. Perfect balance for those who want benefits of plant-based without strict rules.",
       benefits: [
@@ -121,7 +126,6 @@ const DietQuiz = () => {
   };
 
   const calculateResult = (userAnswers) => {
-    // Simple scoring algorithm
     const score = {
       mediterranean: 0,
       keto: 0,
@@ -188,18 +192,15 @@ const DietQuiz = () => {
 
   return (
     <div className="diet-quiz-page">
-      
-
       <div className="quiz-container">
-      <div className="quiz-header">
-    <h1 className="quiz-title">Which Diet Is Right For You?</h1>
-    <p className="quiz-subtitle">
-      With so many diets out there—Mediterranean, low-carb, keto and beyond—it can be confusing to know where to start. But we’ve got you covered!
-    </p>
-  </div>
+        <div className="quiz-header">
+          <h1 className="quiz-title">Which Diet Is Right For You?</h1>
+          <p className="quiz-subtitle">
+            With so many diets out there—Mediterranean, low-carb, keto and beyond—it can be confusing to know where to start. But we've got you covered!
+          </p>
+        </div>
         
         {!showResult ? (
-            
           <div className="quiz-question-container">
             <div className="quiz-progress">
               <div 
@@ -229,8 +230,6 @@ const DietQuiz = () => {
             <h1 className="result-title">{dietResult.title}</h1>
             
             <div className="result-content">
-             
-              
               <div className="result-details">
                 <p className="result-description">{dietResult.description}</p>
                 
@@ -245,8 +244,11 @@ const DietQuiz = () => {
                   <button className="restart-btn" onClick={restartQuiz}>
                     Retake Quiz
                   </button>
+                  <Link to={`/diet/${dietResult.id}`} className="diet-details-link">
+                    Learn More About This Diet
+                  </Link>
                   <Link to="/HealthyRecipes" className="nutrition-link">
-                    Learn More About Nutrition
+                    View Healthy Recipes
                   </Link>
                 </div>
               </div>
@@ -254,8 +256,6 @@ const DietQuiz = () => {
           </div>
         )}
       </div>
-
-      
     </div>
   );
 };

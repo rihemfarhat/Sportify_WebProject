@@ -1,0 +1,149 @@
+/* WorkoutPage.css */
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --light-color: #f8f9fa;
+    --dark-color: #2b2d42;
+  }
+  
+  /* Conteneur principal */
+  .workout-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  /* Titre */
+  .workout-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--dark-color);
+    font-size: 2.2rem;
+  }
+  
+  /* Grille à 2 colonnes */
+  .workout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  /* Carte de workout */
+  .workout-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .workout-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Carrousel d'images */
+  .workout-images {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .image-slider {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .workout-image {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Contrôles du carrousel */
+  .slider-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .slider-dot.active {
+    background: white;
+    transform: scale(1.2);
+  }
+  
+  .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  /* Informations du workout */
+  .workout-info {
+    padding: 1.2rem;
+  }
+  
+  .workout-info h2 {
+    color: var(--dark-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+  }
+  
+  .workout-info p {
+    margin-bottom: 0.6rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .workout-info p strong {
+    color: var(--dark-color);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .workout-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .workout-images {
+      height: 200px;
+    }
+  }

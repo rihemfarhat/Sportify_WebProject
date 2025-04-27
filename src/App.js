@@ -33,6 +33,10 @@ import WomenPage from "./pages/WomenPage";
 import DietQuiz from "./pages/DietQuiz";
 import DietPage from "./pages/DietPage";
 import HealthyRecipes from './pages/HealthyRecipes';
+import DietDetailsPage from  './pages/DietDetailsPage';
+import NutritionistPage from './pages/NutritionistPage'
+import BookConsultation from  './pages/BookConsultation'
+import Workouts from './pages/Workouts'
 
 
 
@@ -76,6 +80,17 @@ function App() {
         <Route path="/DietQuiz" element={<DietQuiz />} />
         <Route path="/diet" element={<DietPage />} />
         <Route path="/HealthyRecipes" element={<HealthyRecipes />} />
+        <Route path="/diet/:dietId" element={<DietDetailsPage />} />
+        <Route path="/NutritionistPage" element={<NutritionistPage />} />
+        <Route path="/BookConsultation/:nutritionistId" element={<BookConsultation />} />
+        <Route path="/Workouts" element={<Workouts />} />
+
+
+        
+
+        
+
+
 
         
 
