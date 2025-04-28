@@ -39,8 +39,8 @@ const TrainingPage = () => {
 
       <div className="training-main">
         <div className="text-section">
-          <h1>Easy to use.<br />Effective. Tailored to your needs.</h1>
-          <p>Over 350 exercises and personalized workouts that help you to become strong inside and out.</p>
+          <h1>Easy to use<br />Effective Tailored to your needs</h1>
+          <p>Over 350 exercises and personalized workouts that help you to become strong inside and out</p>
           <Link to="/Workouts"><button className='start'>Start now →</button></Link>
         </div>
 

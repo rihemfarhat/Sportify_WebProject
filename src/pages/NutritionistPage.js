@@ -21,74 +21,74 @@ const NutritionistPage = () => {
   const mockNutritionists = [
     {
       id: 1,
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Amina Ben Salah",
       specialty: "Weight Management",
-      location: "New York, NY",
+      location: "Tunis",
       rating: 4.8,
       reviews: 124,
       image: nutri1,
       available: "Online & In-person",
-      languages: ["English", "Spanish"],
+      languages: ["Arabic", "French"],
       bio: "Certified nutritionist with 10 years of experience helping clients achieve sustainable weight loss through personalized meal plans."
     },
     {
       id: 2,
-      name: "Dr. Michael Chen",
+      name: "Dr. Karim Trabelsi",
       specialty: "Sports Nutrition",
-      location: "Los Angeles, CA",
+      location: "Sousse",
       rating: 4.9,
       reviews: 87,
       image: nutri2,
       available: "In-person",
-      languages: ["English", "Mandarin"],
-      bio: "Former athlete turned nutrition expert specializing in performance optimization for athletes and active individuals."
+      languages: ["Arabic", "French", "English"],
+      bio: "Former athlete turned nutrition expert specializing in performance optimization for athletes."
     },
     {
       id: 3,
-      name: "Emily Rodriguez, RD",
+      name: "Leila Boukadi, Dietitian",
       specialty: "Plant-Based Nutrition",
-      location: "Chicago, IL",
+      location: "Sfax",
       rating: 4.7,
       reviews: 65,
       image: nutri3,
       available: "Online",
-      languages: ["English", "Spanish"],
-      bio: "Registered dietitian passionate about helping people transition to plant-based diets while meeting all nutritional needs."
+      languages: ["Arabic", "French"],
+      bio: "Dietitian passionate about helping people transition to plant-based diets while meeting all nutritional needs."
     },
     {
       id: 4,
-      name: "Dr. James Wilson",
+      name: "Dr. Hichem Gharbi",
       specialty: "Diabetes Management",
-      location: "Houston, TX",
+      location: "Nabeul",
       rating: 4.9,
       reviews: 112,
       image: nutri4,
       available: "Online & In-person",
-      languages: ["English"],
+      languages: ["Arabic", "French"],
       bio: "Endocrinology-focused nutritionist helping patients manage and reverse type 2 diabetes through dietary interventions."
     },
     {
       id: 5,
-      name: "Lisa Park, RD",
+      name: "Salma Abid, Dietitian",
       specialty: "Pediatric Nutrition",
-      location: "Seattle, WA",
+      location: "Djerba",
       rating: 4.8,
       reviews: 93,
       image: nutri5,
       available: "In-person",
-      languages: ["English", "Korean"],
+      languages: ["Arabic", "French", "German"],
       bio: "Pediatric dietitian specializing in picky eaters, food allergies, and creating healthy eating habits for children."
     },
     {
       id: 6,
-      name: "Dr. Amina Diallo",
+      name: "Dr. Marwa Fersi",
       specialty: "Gut Health",
-      location: "Boston, MA",
+      location: "Bizerte",
       rating: 4.7,
       reviews: 78,
       image: nutri6,
       available: "Online",
-      languages: ["English", "French"],
+      languages: ["Arabic", "French", "Italian"],
       bio: "Functional medicine nutritionist focusing on gut health, food intolerances, and digestive disorders."
     }
   ];
@@ -157,7 +157,7 @@ const NutritionistPage = () => {
             <input
               type="text"
               id="location"
-              placeholder="City, State or Zip"
+              placeholder="City or region"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             />
@@ -173,9 +173,9 @@ const NutritionistPage = () => {
               <option value="">All Specialties</option>
               <option value="Weight Management">Weight Management</option>
               <option value="Sports Nutrition">Sports Nutrition</option>
-              <option value="Plant-Based">Plant-Based Nutrition</option>
-              <option value="Diabetes">Diabetes Management</option>
-              <option value="Pediatric">Pediatric Nutrition</option>
+              <option value="Plant-Based Nutrition">Plant-Based Nutrition</option>
+              <option value="Diabetes Management">Diabetes Management</option>
+              <option value="Pediatric Nutrition">Pediatric Nutrition</option>
               <option value="Gut Health">Gut Health</option>
             </select>
           </div>
@@ -196,7 +196,7 @@ const NutritionistPage = () => {
         ) : (
           <>
             <h2 className="results-title">
-              {nutritionists.length} {nutritionists.length === 1 ? 'Nutritionist' : 'Nutritionists'} Found
+              {nutritionists.length} {nutritionists.length === 1 ? 'Nutritionist Found' : 'Nutritionists Found'}
             </h2>
             
             {nutritionists.length === 0 ? (

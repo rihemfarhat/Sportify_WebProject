@@ -247,9 +247,7 @@ const DietQuiz = () => {
                   <Link to={`/diet/${dietResult.id}`} className="diet-details-link">
                     Learn More About This Diet
                   </Link>
-                  <Link to="/HealthyRecipes" className="nutrition-link">
-                    View Healthy Recipes
-                  </Link>
+                  
                 </div>
               </div>
             </div>

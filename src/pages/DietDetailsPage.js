@@ -249,9 +249,6 @@ const DietDetailsPage = () => {
               <button className="resource-btn" onClick={handleDownloadMealPlan}>
                 Download Meal Plan
               </button>
-              <button className="resource-btn">
-                Recommended Cookbooks
-              </button>
               <Link to="/NutritionistPage" className="resource-btn">
                 Find a Nutritionist
               </Link>
@@ -260,12 +257,7 @@ const DietDetailsPage = () => {
         </div>
       </div>
 
-      <div className="diet-comparison-cta">
-        <p>Not sure this is right for you?</p>
-        <Link to="/diet-comparison" className="comparison-link">
-          Compare all diets side by side
-        </Link>
-      </div>
+      
     </div>
   );
 };

@@ -163,44 +163,72 @@
 }
 
 /* Boutons */
+/* Result Actions Container */
 .result-actions {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.restart-btn, .nutrition-link {
-  padding: 0.8rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
+/* Primary Button - Learn More */
+.diet-details-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #3f10aa; /* Green color */
+  color: white;
   text-decoration: none;
-  transition: var(--transition);
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-grow: 1;
   text-align: center;
-}
-
-.restart-btn {
-  background: var(--primary);
-  color: var(--white);
   border: none;
   cursor: pointer;
 }
 
+.diet-details-link:hover {
+  background-color: #3e8e41; /* Darker green */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Small Restart Button */
+.restart-btn {
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  order: 2; /* Forces it to the right */
+}
+
 .restart-btn:hover {
-  background: var(--secondary);
+  background-color: #f1f1f1;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(67, 97, 238, 0.2);
 }
 
-.nutrition-link {
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.nutrition-link:hover {
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-2px);
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .result-actions {
+    flex-direction: column;
+  }
+  
+  .diet-details-link {
+    width: 100%;
+    order: 1;
+  }
+  
+  .restart-btn {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    order: 2;
+  }
 }
 
 /* Responsive */
